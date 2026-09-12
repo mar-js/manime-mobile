@@ -3,6 +3,11 @@ import type { ComponentProps } from "react";
 
 export type TIoniconsName = ComponentProps<typeof Ionicons>["name"];
 
+export interface IDataTabs {
+	title: string;
+	icon: TIoniconsName;
+}
+
 export interface ITabIcon {
 	icon: TIoniconsName;
 	focused: boolean;
