@@ -10,20 +10,16 @@ export default function TabsLayout() {
 				tabBarShowLabel: false,
 				tabBarStyle: {
 					position: "absolute",
-					bottom: 50,
+					bottom: 60,
 					height: 60,
 					marginHorizontal: 20,
 					borderRadius: 100,
+					borderTopWidth: 0,
 					backgroundColor: "#0b3141",
 					elevation: 0,
 				},
 				tabBarItemStyle: {
 					paddingVertical: 10,
-				},
-				tabBarIconStyle: {
-					width: 30,
-					height: 30,
-					alignItems: "center",
 				},
 			}}
 		>
