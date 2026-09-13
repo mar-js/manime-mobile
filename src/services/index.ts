@@ -1,0 +1,1 @@
+export { getAnimes } from "./getAnimes";
