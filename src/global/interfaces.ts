@@ -10,7 +10,7 @@ export interface IAnimesStore {
 	error: string | null;
 	nextPageUrl: string | null;
 	fetchAnimes: () => Promise<void>;
-	fetchNextPage: () => Promise<void>;
+	fetchAnimesNextPage: () => Promise<void>;
 }
 
 export interface IServiceAnimesResponse {

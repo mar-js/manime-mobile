@@ -23,7 +23,7 @@ export const useAnimesStore = create<IAnimesStore>((set, get) => ({
 			set({ error: errorMessage, isLoading: false });
 		}
 	},
-	fetchNextPage: async () => {
+	fetchAnimesNextPage: async () => {
 		const { nextPageUrl, isLoadingMore, isLoading, animes } = get();
 
 		if (animes.length === 0) return;
