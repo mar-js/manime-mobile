@@ -1,0 +1,1 @@
+export { useAnimesStore } from "./useAnimesStore";
