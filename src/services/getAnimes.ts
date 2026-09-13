@@ -1,9 +1,8 @@
+import { API_ANIME } from "@/global/constants";
 import type { IServiceAnimesResponse } from "@/global/interfaces";
 
-const BASE_URL = `${process.env.EXPO_PUBLIC_BASE_URL}/anime` || "";
-
 export const getAnimes = async (
-	url: string = BASE_URL,
+	url: string = API_ANIME,
 ): Promise<IServiceAnimesResponse | null> => {
 	try {
 		const response = await fetch(url);
