@@ -5,8 +5,8 @@ export type TIoniconsName = ComponentProps<typeof Ionicons>["name"];
 
 export interface ITrendingAnimesStore {
 	trendingAnimes: AnimeItem[];
-	isLoading: boolean;
-	isLoadingMore: boolean;
+	isTrendingAnimesLoading: boolean;
+	isTrendingAnimesLoadingMore: boolean;
 	error: string | null;
 	nextPageUrl: string | null;
 	fetchTrendingAnimes: () => Promise<void>;
@@ -15,8 +15,8 @@ export interface ITrendingAnimesStore {
 
 export interface IAnimesStore {
 	animes: AnimeItem[];
-	isLoading: boolean;
-	isLoadingMore: boolean;
+	isAnimesLoading: boolean;
+	isAnimesLoadingMore: boolean;
 	error: string | null;
 	nextPageUrl: string | null;
 	fetchAnimes: () => Promise<void>;
@@ -63,8 +63,8 @@ export interface Attributes {
 	subtype: string;
 	status: string;
 	tba: string;
-	posterImage: PosterImage;
-	coverImage: CoverImage;
+	posterImage: PosterImage | null;
+	coverImage: CoverImage | null;
 	episodeCount: number;
 	episodeLength: number;
 	youtubeVideoId: string;
