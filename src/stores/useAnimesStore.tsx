@@ -4,32 +4,32 @@ import { create } from "zustand";
 
 export const useAnimesStore = create<IAnimesStore>((set, get) => ({
 	animes: [],
-	isLoading: false,
-	isLoadingMore: false,
+	isAnimesLoading: false,
+	isAnimesLoadingMore: false,
 	error: null,
 	nextPageUrl: null,
 	fetchAnimes: async () => {
-		set({ isLoading: true, error: null });
+		set({ isAnimesLoading: true, error: null });
 		try {
 			const response = await getAnimes();
 			set({
 				animes: response?.data,
 				nextPageUrl: response?.links?.next || null,
-				isLoading: false,
+				isAnimesLoading: false,
 			});
 		} catch (error) {
 			const errorMessage =
 				error instanceof Error ? error.message : "Unexpected error";
-			set({ error: errorMessage, isLoading: false });
+			set({ error: errorMessage, isAnimesLoading: false });
 		}
 	},
 	fetchAnimesNextPage: async () => {
-		const { nextPageUrl, isLoadingMore, isLoading, animes } = get();
+		const { nextPageUrl, isAnimesLoadingMore, isAnimesLoading, animes } = get();
 
 		if (animes.length === 0) return;
-		if (!nextPageUrl || isLoadingMore || isLoading) return;
+		if (!nextPageUrl || isAnimesLoadingMore || isAnimesLoading) return;
 
-		set({ isLoadingMore: true });
+		set({ isAnimesLoadingMore: true });
 
 		try {
 			const response = await getAnimes(nextPageUrl);
@@ -37,19 +37,19 @@ export const useAnimesStore = create<IAnimesStore>((set, get) => ({
 				set((state) => ({
 					animes: [...state.animes, ...response.data],
 					nextPageUrl: response.links.next || null,
-					isLoadingMore: false,
+					isAnimesLoadingMore: false,
 				}));
 			} else {
 				set(() => ({
 					animes: [],
 					nextPageUrl: null,
-					isLoadingMore: false,
+					isAnimesLoadingMore: false,
 				}));
 			}
 		} catch (error) {
 			const errorMessage =
 				error instanceof Error ? error.message : "Error loading more pages";
-			set({ error: errorMessage, isLoading: false });
+			set({ error: errorMessage, isAnimesLoading: false });
 		}
 	},
 }));

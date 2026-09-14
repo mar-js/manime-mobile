@@ -5,32 +5,42 @@ import { create } from "zustand";
 export const useTrendingAnimesStore = create<ITrendingAnimesStore>(
 	(set, get) => ({
 		trendingAnimes: [],
-		isLoading: false,
-		isLoadingMore: false,
+		isTrendingAnimesLoading: false,
+		isTrendingAnimesLoadingMore: false,
 		error: null,
 		nextPageUrl: null,
 		fetchTrendingAnimes: async () => {
-			set({ isLoading: true, error: null });
+			set({ isTrendingAnimesLoading: true, error: null });
 			try {
 				const response = await getAnimes();
 				set({
 					trendingAnimes: response?.data,
 					nextPageUrl: response?.links?.next || null,
-					isLoading: false,
+					isTrendingAnimesLoading: false,
 				});
 			} catch (error) {
 				const errorMessage =
 					error instanceof Error ? error.message : "Unexpected error";
-				set({ error: errorMessage, isLoading: false });
+				set({ error: errorMessage, isTrendingAnimesLoading: false });
 			}
 		},
 		fetchTrendingAnimesNextPage: async () => {
-			const { nextPageUrl, isLoadingMore, isLoading, trendingAnimes } = get();
+			const {
+				nextPageUrl,
+				isTrendingAnimesLoadingMore,
+				isTrendingAnimesLoading,
+				trendingAnimes,
+			} = get();
 
 			if (trendingAnimes.length === 0) return;
-			if (!nextPageUrl || isLoadingMore || isLoading) return;
+			if (
+				!nextPageUrl ||
+				isTrendingAnimesLoadingMore ||
+				isTrendingAnimesLoading
+			)
+				return;
 
-			set({ isLoadingMore: true });
+			set({ isTrendingAnimesLoadingMore: true });
 
 			try {
 				const response = await getAnimes(nextPageUrl);
@@ -38,19 +48,19 @@ export const useTrendingAnimesStore = create<ITrendingAnimesStore>(
 					set((state) => ({
 						trendingAnimes: [...state.trendingAnimes, ...response.data],
 						nextPageUrl: response.links.next || null,
-						isLoadingMore: false,
+						isTrendingAnimesLoadingMore: false,
 					}));
 				} else {
 					set(() => ({
 						trendingAnimes: [],
 						nextPageUrl: null,
-						isLoadingMore: false,
+						isTrendingAnimesLoadingMore: false,
 					}));
 				}
 			} catch (error) {
 				const errorMessage =
 					error instanceof Error ? error.message : "Error loading more pages";
-				set({ error: errorMessage, isLoading: false });
+				set({ error: errorMessage, isTrendingAnimesLoading: false });
 			}
 		},
 	}),
