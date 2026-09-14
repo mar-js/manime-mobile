@@ -2,7 +2,7 @@ import { Image, Text, View } from "react-native";
 import type { JSX } from "react/jsx-runtime";
 
 export const Title = (): JSX.Element => (
-	<View className="flex-row items-center justify-between mb-10">
+	<View className="flex-row items-center justify-between">
 		<View className="p-5" />
 		<Text className="text-3xl text-white font-bold">MANIME</Text>
 		<Image
