@@ -3,6 +3,13 @@ import type { ComponentProps } from "react";
 
 export type TIoniconsName = ComponentProps<typeof Ionicons>["name"];
 
+export interface IListAnime {
+	title: string;
+	animes: AnimeItem[];
+	isLoading: boolean;
+	handlerScrollInfinite: () => void;
+}
+
 export interface ITrendingAnimesStore {
 	trendingAnimes: AnimeItem[];
 	isTrendingAnimesLoading: boolean;
