@@ -1,3 +1,4 @@
+import { API_TRENDING_ANIME } from "@/global/constants";
 import type { ITrendingAnimesStore } from "@/global/interfaces";
 import { getAnimes } from "@/services";
 import { create } from "zustand";
@@ -12,7 +13,7 @@ export const useTrendingAnimesStore = create<ITrendingAnimesStore>(
 		fetchTrendingAnimes: async () => {
 			set({ isTrendingAnimesLoading: true, error: null });
 			try {
-				const response = await getAnimes();
+				const response = await getAnimes(API_TRENDING_ANIME);
 				set({
 					trendingAnimes: response?.data,
 					nextPageUrl: response?.links?.next || null,
