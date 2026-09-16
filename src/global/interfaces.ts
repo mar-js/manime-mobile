@@ -4,6 +4,10 @@ import type { ImageSourcePropType } from "react-native";
 
 export type TIoniconsName = ComponentProps<typeof Ionicons>["name"];
 
+export interface ITitle {
+	isVisibleBackBtn: boolean;
+}
+
 export interface ITopSlider {
 	data: IDataMainSlider[];
 }
