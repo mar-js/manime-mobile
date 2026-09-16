@@ -4,6 +4,10 @@ import type { ImageSourcePropType } from "react-native";
 
 export type TIoniconsName = ComponentProps<typeof Ionicons>["name"];
 
+export interface ITopSlider {
+	data: IDataMainSlider[];
+}
+
 export interface IDataMainSlider {
 	id: string;
 	title: string;
