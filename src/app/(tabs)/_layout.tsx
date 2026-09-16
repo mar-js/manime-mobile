@@ -26,7 +26,7 @@ export default function TabsLayout() {
 						marginHorizontal: 20,
 						borderRadius: 100,
 						borderTopWidth: 0,
-						backgroundColor: "#0b3141",
+						backgroundColor: "#0b3141c7",
 						elevation: 0,
 					},
 					tabBarItemStyle: {
