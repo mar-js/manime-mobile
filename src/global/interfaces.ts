@@ -1,7 +1,14 @@
 import type Ionicons from "@expo/vector-icons/Ionicons";
 import type { ComponentProps } from "react";
+import type { ImageSourcePropType } from "react-native";
 
 export type TIoniconsName = ComponentProps<typeof Ionicons>["name"];
+
+export interface IDataMainSlider {
+	id: string;
+	title: string;
+	url: ImageSourcePropType;
+}
 
 export interface IHeadListAnime {
 	title: string;
