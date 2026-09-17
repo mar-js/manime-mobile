@@ -50,7 +50,6 @@ export default function Index() {
 				contentContainerStyle={{
 					flexGrow: 1,
 					gap: 20,
-					paddingTop: 20,
 					paddingBottom: 100,
 				}}
 			>
