@@ -5,7 +5,7 @@ import {
 	TopSlider,
 } from "@/components";
 import { dataMainSlider } from "@/global/data";
-import { useAnimesStore, useTrendingAnimesStore } from "@/stores";
+import { useAnimeCatalogStore } from "@/stores";
 import { useFocusEffect } from "expo-router";
 import { useCallback } from "react";
 import { ActivityIndicator, ScrollView } from "react-native";
@@ -13,34 +13,19 @@ import { ActivityIndicator, ScrollView } from "react-native";
 export default function Index() {
 	const {
 		animes,
-		isAnimesLoading,
-		isAnimesLoadingMore,
+		trending,
 		fetchAnimes,
 		fetchAnimesNextPage,
-	} = useAnimesStore();
-	const {
-		trendingAnimes,
-		isTrendingAnimesLoading,
-		isTrendingAnimesLoadingMore,
-		fetchTrendingAnimes,
-		fetchTrendingAnimesNextPage,
-	} = useTrendingAnimesStore();
+		fetchTrending,
+		fetchTrendingNextPage,
+	} = useAnimeCatalogStore();
 
-	const handlerFetchAnimes = useCallback(() => {
-		fetchAnimes();
-	}, [fetchAnimes]);
-
-	const handlerFetchTrendingAnimes = useCallback(() => {
-		fetchTrendingAnimes();
-	}, [fetchTrendingAnimes]);
-
-	useFocusEffect(() => {
-		handlerFetchAnimes();
-	});
-
-	useFocusEffect(() => {
-		handlerFetchTrendingAnimes();
-	});
+	useFocusEffect(
+		useCallback(() => {
+			fetchAnimes();
+			fetchTrending();
+		}, [fetchAnimes, fetchTrending]),
+	);
 
 	return (
 		<SafeAreaViewContainer>
@@ -54,23 +39,23 @@ export default function Index() {
 				}}
 			>
 				<TopSlider data={dataMainSlider} />
-				{isTrendingAnimesLoading ? (
+				{trending.isLoading ? (
 					<ActivityIndicator size="large" color="#ffdc5e" className="my-10" />
 				) : (
 					<ListAnime
 						title="En Tendencia"
-						animes={trendingAnimes}
-						isLoading={isTrendingAnimesLoadingMore}
-						handlerScrollInfinite={fetchTrendingAnimesNextPage}
+						animes={trending.data}
+						isLoading={trending.isLoadingMore}
+						handlerScrollInfinite={fetchTrendingNextPage}
 					/>
 				)}
-				{isAnimesLoading ? (
+				{animes.isLoading ? (
 					<ActivityIndicator size="large" color="#ffdc5e" className="my-10" />
 				) : (
 					<ListAnime
 						title="Popular"
-						animes={animes}
-						isLoading={isAnimesLoadingMore}
+						animes={animes.data}
+						isLoading={animes.isLoadingMore}
 						handlerScrollInfinite={fetchAnimesNextPage}
 					/>
 				)}
