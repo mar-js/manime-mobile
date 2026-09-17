@@ -5,5 +5,7 @@ import type { JSX } from "react/jsx-runtime";
 export const SafeAreaViewContainer = ({
 	children,
 }: PropsWithChildren): JSX.Element => (
-	<SafeAreaView className="flex-1 bg-transparent p-5">{children}</SafeAreaView>
+	<SafeAreaView className="flex-1 bg-transparent p-5 gap-5">
+		{children}
+	</SafeAreaView>
 );
