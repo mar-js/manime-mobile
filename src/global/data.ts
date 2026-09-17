@@ -1,4 +1,17 @@
-import type { IDataMainSlider, IDataTabs, TTypeAnime } from "./interfaces";
+import type {
+	IAnimeSectionState,
+	IDataMainSlider,
+	IDataTabs,
+	TTypeAnime,
+} from "./interfaces";
+
+export const initialSectionState: IAnimeSectionState = {
+	data: [],
+	isLoading: false,
+	isLoadingMore: false,
+	nextPageUrl: null,
+	error: null,
+};
 
 export const dataTypesAnime: TTypeAnime[] = [
 	"All",

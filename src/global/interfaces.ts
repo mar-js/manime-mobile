@@ -38,24 +38,21 @@ export interface IListAnime {
 	handlerScrollInfinite: () => void;
 }
 
-export interface ITrendingAnimesStore {
-	trendingAnimes: AnimeItem[];
-	isTrendingAnimesLoading: boolean;
-	isTrendingAnimesLoadingMore: boolean;
-	error: string | null;
-	nextPageUrl: string | null;
-	fetchTrendingAnimes: () => Promise<void>;
-	fetchTrendingAnimesNextPage: () => Promise<void>;
-}
-
-export interface IAnimesStore {
-	animes: AnimeItem[];
-	isAnimesLoading: boolean;
-	isAnimesLoadingMore: boolean;
-	error: string | null;
-	nextPageUrl: string | null;
+export interface IAnimeCatalogStore {
+	animes: IAnimeSectionState;
+	trending: IAnimeSectionState;
 	fetchAnimes: () => Promise<void>;
 	fetchAnimesNextPage: () => Promise<void>;
+	fetchTrending: () => Promise<void>;
+	fetchTrendingNextPage: () => Promise<void>;
+}
+
+export interface IAnimeSectionState {
+	data: AnimeItem[];
+	isLoading: boolean;
+	isLoadingMore: boolean;
+	nextPageUrl: string | null;
+	error: string | null;
 }
 
 export interface IServiceAnimesResponse {

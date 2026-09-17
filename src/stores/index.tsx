@@ -1,2 +1,1 @@
-export { useAnimesStore } from "./useAnimesStore";
-export { useTrendingAnimesStore } from "./useTrendingAnimesStore";
+export { useAnimeCatalogStore } from "./useAnimeCatalogStore";
