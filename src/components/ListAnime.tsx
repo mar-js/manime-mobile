@@ -1,6 +1,7 @@
-import { CardAnime, HeadListAnime } from "@/components";
 import type { IListAnime } from "@/global/interfaces";
 import { ActivityIndicator, FlatList, Text, View } from "react-native";
+import { CardAnime } from "./CardAnime";
+import { HeadListAnime } from "./HeadListAnime";
 
 export const ListAnime = ({
 	title,
