@@ -1,4 +1,14 @@
-import type { IDataMainSlider, IDataTabs } from "./interfaces";
+import type { IDataMainSlider, IDataTabs, TTypeAnime } from "./interfaces";
+
+export const dataTypesAnime: TTypeAnime[] = [
+	"All",
+	"ONA",
+	"OVA",
+	"TV",
+	"movie",
+	"music",
+	"special",
+];
 
 export const dataMainSlider: IDataMainSlider[] = [
 	{
