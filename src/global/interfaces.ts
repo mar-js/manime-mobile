@@ -4,6 +4,8 @@ import type { ImageSourcePropType } from "react-native";
 
 export type TIoniconsName = ComponentProps<typeof Ionicons>["name"];
 
+export type TTypeAnime = "ONA" | "OVA" | "TV" | "movie" | "music" | "special";
+
 export interface ITitle {
 	isVisibleBackBtn?: boolean;
 }
@@ -86,7 +88,7 @@ export interface Attributes {
 	ratingRank: number;
 	ageRating: string;
 	ageRatingGuide: string;
-	subtype: string;
+	subtype: TTypeAnime;
 	status: string;
 	tba: string;
 	posterImage: PosterImage | null;
@@ -94,7 +96,7 @@ export interface Attributes {
 	episodeCount: number;
 	episodeLength: number;
 	youtubeVideoId: string;
-	showType: string;
+	showType: TTypeAnime;
 	nsfw: boolean;
 }
 
