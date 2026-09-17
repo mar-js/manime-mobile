@@ -55,7 +55,7 @@ export default function Index() {
 			>
 				<TopSlider data={dataMainSlider} />
 				{isTrendingAnimesLoading ? (
-					<ActivityIndicator size="large" color="#ebc16d" className="my-10" />
+					<ActivityIndicator size="large" color="#ffdc5e" className="my-10" />
 				) : (
 					<ListAnime
 						title="En Tendencia"
@@ -65,7 +65,7 @@ export default function Index() {
 					/>
 				)}
 				{isAnimesLoading ? (
-					<ActivityIndicator size="large" color="#ebc16d" className="my-10" />
+					<ActivityIndicator size="large" color="#ffdc5e" className="my-10" />
 				) : (
 					<ListAnime
 						title="Popular"

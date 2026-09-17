@@ -32,7 +32,7 @@ export const ListAnime = ({
 			ListFooterComponent={
 				<View className="m-5">
 					{isLoading ? (
-						<ActivityIndicator size="large" color="#ebc16d" />
+						<ActivityIndicator size="large" color="#ffdc5e" />
 					) : null}
 				</View>
 			}
