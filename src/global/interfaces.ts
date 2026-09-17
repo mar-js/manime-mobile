@@ -4,7 +4,14 @@ import type { ImageSourcePropType } from "react-native";
 
 export type TIoniconsName = ComponentProps<typeof Ionicons>["name"];
 
-export type TTypeAnime = "ONA" | "OVA" | "TV" | "movie" | "music" | "special";
+export type TTypeAnime =
+	| "All"
+	| "ONA"
+	| "OVA"
+	| "TV"
+	| "movie"
+	| "music"
+	| "special";
 
 export interface ITitle {
 	isVisibleBackBtn?: boolean;
