@@ -6,7 +6,7 @@ import type { JSX } from "react/jsx-runtime";
 export const Title = ({ isVisibleBackBtn }: ITitle): JSX.Element => (
 	<View className="flex-row items-center justify-between">
 		{isVisibleBackBtn ? (
-			<Ionicons name="arrow-back" color="white" size={30} />
+			<Ionicons name="arrow-back" color="white" size={20} />
 		) : (
 			<View className="p-5" />
 		)}
