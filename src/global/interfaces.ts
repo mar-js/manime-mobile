@@ -36,6 +36,11 @@ export type TCategoryAnime =
 	| "sci-fi"
 	| "slice-of-life";
 
+export interface IModalFilters {
+	showModal: boolean;
+	handlePressShowModal: () => void;
+}
+
 export interface ITitle {
 	isVisibleBackBtn?: boolean;
 }
