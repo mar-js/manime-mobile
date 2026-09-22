@@ -5,25 +5,29 @@ import { HeadListAnime } from "./HeadListAnime";
 
 export const ListAnime = ({
 	title,
+	horizontal,
 	animes,
 	isLoading,
 	isLoadingMore,
 	handlerScrollInfinite,
-	renderAnimeItem,
+	RenderComponent,
 }: IListAnime) => (
 	<View className="w-full">
 		{title && <HeadListAnime title={title} />}
 		<FlatList
 			data={animes}
 			keyExtractor={(item, index) => `${item.id}-${index}`}
-			horizontal
+			horizontal={horizontal}
+			numColumns={horizontal ? 1 : 2}
 			showsHorizontalScrollIndicator={false}
+			showsVerticalScrollIndicator={false}
 			contentContainerStyle={{
 				gap: 10,
 				justifyContent: "center",
-				alignItems: "center",
+				alignItems: horizontal ? "center" : "stretch",
+				paddingBottom: horizontal ? 0 : 100,
 			}}
-			renderItem={({ item }) => renderAnimeItem(item)}
+			renderItem={({ item }) => <RenderComponent anime={item} />}
 			onEndReached={handlerScrollInfinite}
 			onEndReachedThreshold={0.5}
 			ListFooterComponent={
