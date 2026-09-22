@@ -1,5 +1,5 @@
 import {
-	ListResultAnime,
+	ListAnime,
 	Loader,
 	ModalFilters,
 	ResultAnime,
@@ -103,11 +103,11 @@ export default function Search() {
 			{animes.isLoading && animes.data.length === 0 ? (
 				<Loader />
 			) : (
-				<ListResultAnime
-					data={animes.data}
-					isLoadingMore={animes.isLoadingMore}
+				<ListAnime
+					animes={animes.data}
 					isLoading={animes.isLoading}
-					fetchAnimesNextPage={fetchAnimesNextPage}
+					isLoadingMore={animes.isLoadingMore}
+					handlerScrollInfinite={fetchAnimesNextPage}
 					renderAnimeItem={ResultAnime}
 				/>
 			)}
