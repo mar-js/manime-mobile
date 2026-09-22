@@ -4,7 +4,7 @@ import { useRouter } from "expo-router";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import type { JSX } from "react/jsx-runtime";
 
-export const ResultAnime = ({ item }: { item: AnimeItem }): JSX.Element => {
+export const ResultAnime = (item: AnimeItem): JSX.Element => {
 	const router = useRouter();
 
 	const handlerNavigationAnime = () => {
