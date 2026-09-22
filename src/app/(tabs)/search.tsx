@@ -108,7 +108,7 @@ export default function Search() {
 					isLoading={animes.isLoading}
 					isLoadingMore={animes.isLoadingMore}
 					handlerScrollInfinite={fetchAnimesNextPage}
-					renderAnimeItem={ResultAnime}
+					renderAnimeItem={(item) => <ResultAnime {...item} />}
 				/>
 			)}
 			<ModalFilters

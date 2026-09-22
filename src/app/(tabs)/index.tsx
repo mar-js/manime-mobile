@@ -62,7 +62,7 @@ export default function Index() {
 						isLoading={animes.isLoading}
 						isLoadingMore={animes.isLoadingMore}
 						handlerScrollInfinite={fetchAnimesNextPage}
-						renderAnimeItem={CardAnime}
+						renderAnimeItem={(item) => <CardAnime {...item} />}
 					/>
 				)}
 			</ScrollView>

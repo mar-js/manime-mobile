@@ -100,7 +100,7 @@ export interface IListAnime {
 	isLoading: boolean;
 	isLoadingMore: boolean;
 	handlerScrollInfinite: () => void;
-	renderAnimeItem: (_item: AnimeItem) => JSX.Element;
+	renderAnimeItem: (item: AnimeItem) => JSX.Element;
 }
 
 export interface IAnimeCatalogStore {
