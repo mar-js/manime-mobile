@@ -1,5 +1,6 @@
 import {
 	ListResultAnime,
+	Loader,
 	ModalFilters,
 	ResultAnime,
 	SafeAreaViewContainer,
@@ -9,12 +10,7 @@ import type { ISearchState, TSelectType } from "@/global/interfaces";
 import { useAnimeCatalogStore } from "@/stores";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useEffect, useState } from "react";
-import {
-	ActivityIndicator,
-	TextInput,
-	TouchableOpacity,
-	View,
-} from "react-native";
+import { TextInput, TouchableOpacity, View } from "react-native";
 
 export default function Search() {
 	const { animes, fetchAnimes, fetchAnimesNextPage } = useAnimeCatalogStore();
@@ -105,9 +101,7 @@ export default function Search() {
 				</View>
 			</View>
 			{animes.isLoading && animes.data.length === 0 ? (
-				<View className="flex-1 justify-center items-center">
-					<ActivityIndicator size="large" color="#6b7280" />
-				</View>
+				<Loader />
 			) : (
 				<ListResultAnime
 					data={animes.data}
