@@ -17,7 +17,11 @@ export const ListResultAnime = ({
 			renderItem={({ item }) => renderAnimeItem(item)}
 			numColumns={2}
 			showsVerticalScrollIndicator={false}
-			contentContainerStyle={{ paddingBottom: 100 }}
+			contentContainerStyle={{
+				gap: 10,
+				justifyContent: "center",
+				alignItems: "center",
+			}}
 			onEndReached={() => fetchAnimesNextPage()}
 			onEndReachedThreshold={0.5}
 			ListFooterComponent={
@@ -29,7 +33,7 @@ export const ListResultAnime = ({
 			}
 			ListEmptyComponent={
 				!isLoading ? (
-					<View className="flex-1 justify-center items-center mt-20">
+					<View className="flex-1 justify-center items-center m-10">
 						<Ionicons name="search-outline" size={50} color="#9ca3af" />
 						<Text className="text-gray-500 text-lg mt-2 font-medium">
 							No results found
