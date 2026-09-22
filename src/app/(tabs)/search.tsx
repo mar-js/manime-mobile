@@ -10,7 +10,7 @@ import type { ISearchState, TSelectType } from "@/global/interfaces";
 import { useAnimeCatalogStore } from "@/stores";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useEffect, useState } from "react";
-import { TextInput, TouchableOpacity, View } from "react-native";
+import { Text, TextInput, TouchableOpacity, View } from "react-native";
 
 export default function Search() {
 	const { animes, fetchAnimes, fetchAnimesNextPage } = useAnimeCatalogStore();
@@ -25,6 +25,10 @@ export default function Search() {
 		},
 		showModal: false,
 	});
+
+	const totalFiltersSelected = Object.values(searchState.filters).filter(
+		(value) => value !== "All",
+	).length;
 
 	const handleChangeQuery = (text: string): void => {
 		setSearchState((prevState) => ({ ...prevState, query: text }));
@@ -94,9 +98,18 @@ export default function Search() {
 								<Ionicons name="close-circle" size={20} color="#6b7280" />
 							</TouchableOpacity>
 						)}
-						<TouchableOpacity onPress={handlePressShowModal}>
-							<Ionicons name="menu" size={20} color="#6b7280" />
-						</TouchableOpacity>
+						<View className="relative">
+							{totalFiltersSelected > 0 && (
+								<View className="absolute -top-2 right-2 z-50 bg-gray-500 rounded-full w-5 h-5 flex items-center justify-center">
+									<Text className="text-white text-xs font-bold">
+										{totalFiltersSelected}
+									</Text>
+								</View>
+							)}
+							<TouchableOpacity onPress={handlePressShowModal}>
+								<Ionicons name="menu" size={20} color="#6b7280" />
+							</TouchableOpacity>
+						</View>
 					</View>
 				</View>
 			</View>
