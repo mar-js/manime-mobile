@@ -13,6 +13,29 @@ export type TTypeAnime =
 	| "music"
 	| "special";
 
+export type TStatusAnime = "All" | "current" | "finished" | "upcoming";
+
+export type TSeasonYearAnime =
+	| "All"
+	| "2026"
+	| "2025"
+	| "2024"
+	| "2023"
+	| "2022"
+	| "2021"
+	| "2020";
+
+export type TCategoryAnime =
+	| "All"
+	| "action"
+	| "adventure"
+	| "comedy"
+	| "drama"
+	| "fantasy"
+	| "romance"
+	| "sci-fi"
+	| "slice-of-life";
+
 export interface ITitle {
 	isVisibleBackBtn?: boolean;
 }
