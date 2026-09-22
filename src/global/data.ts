@@ -2,16 +2,11 @@ import type {
 	IAnimeSectionState,
 	IDataMainSlider,
 	IDataTabs,
+	TCategoryAnime,
+	TSeasonYearAnime,
+	TStatusAnime,
 	TTypeAnime,
 } from "./interfaces";
-
-export const initialSectionState: IAnimeSectionState = {
-	data: [],
-	isLoading: false,
-	isLoadingMore: false,
-	nextPageUrl: null,
-	error: null,
-};
 
 export const dataTypesAnime: TTypeAnime[] = [
 	"All",
@@ -22,6 +17,44 @@ export const dataTypesAnime: TTypeAnime[] = [
 	"music",
 	"special",
 ];
+
+export const dataStatusAnime: TStatusAnime[] = [
+	"All",
+	"current",
+	"finished",
+	"upcoming",
+];
+
+export const dataSeasonYearAnime: TSeasonYearAnime[] = [
+	"All",
+	"2026",
+	"2025",
+	"2024",
+	"2023",
+	"2022",
+	"2021",
+	"2020",
+];
+
+export const dataCategoriesAnime: TCategoryAnime[] = [
+	"All",
+	"action",
+	"adventure",
+	"comedy",
+	"drama",
+	"fantasy",
+	"romance",
+	"sci-fi",
+	"slice-of-life",
+];
+
+export const initialSectionState: IAnimeSectionState = {
+	data: [],
+	isLoading: false,
+	isLoadingMore: false,
+	nextPageUrl: null,
+	error: null,
+};
 
 export const dataMainSlider: IDataMainSlider[] = [
 	{
