@@ -17,11 +17,11 @@ export const Title = ({ isVisibleBackBtn }: ITitle): JSX.Element => {
 				<Ionicons
 					name="arrow-back"
 					color="white"
-					size={20}
+					size={30}
 					onPress={handleNavigationBack}
 				/>
 			) : (
-				<View className="p-5" />
+				<View className="size-[30px]" />
 			)}
 			<Text className="text-3xl text-white font-bold">MANIME</Text>
 			<Image
