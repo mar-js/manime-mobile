@@ -101,3 +101,10 @@ export const dataTabs: IDataTabs[] = [
 		icon: "person",
 	},
 ];
+
+export const dataModalFilter = [
+	{ id: 1, title: "Tipos", data: dataTypesAnime },
+	{ id: 2, title: "Categorias", data: dataCategoriesAnime },
+	{ id: 3, title: "Años de temporadas", data: dataSeasonYearAnime },
+	{ id: 4, title: "Estados", data: dataStatusAnime },
+];
