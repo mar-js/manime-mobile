@@ -107,6 +107,7 @@ export interface IListAnime {
 	animes: AnimeItem[];
 	isLoading: boolean;
 	handlerScrollInfinite: () => void;
+	renderAnimeItem: (item: AnimeItem) => JSX.Element;
 }
 
 export interface IAnimeCatalogStore {
