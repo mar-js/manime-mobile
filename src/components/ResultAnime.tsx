@@ -4,7 +4,7 @@ import { useRouter } from "expo-router";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import type { JSX } from "react/jsx-runtime";
 
-export const ResultAnime = (item: AnimeItem): JSX.Element => {
+export const ResultAnime = (anime: AnimeItem): JSX.Element => {
 	const router = useRouter();
 
 	const handlerNavigationAnime = () => {
@@ -12,13 +12,13 @@ export const ResultAnime = (item: AnimeItem): JSX.Element => {
 	};
 
 	const title =
-		item.attributes.canonicalTitle || item.attributes.titles.en || "No Title";
+		anime.attributes.canonicalTitle || anime.attributes.titles.en || "No Title";
 	const imageUrl =
-		item.attributes.posterImage?.small || item.attributes.posterImage?.medium;
-	const subtype = item.attributes.subtype || "N/A";
-	const status = item.attributes.status || "Unknown";
-	const date = item.attributes.startDate
-		? new Date(item.attributes.startDate).toLocaleDateString("en-US", {
+		anime.attributes.posterImage?.small || anime.attributes.posterImage?.medium;
+	const subtype = anime.attributes.subtype || "N/A";
+	const status = anime.attributes.status || "Unknown";
+	const date = anime.attributes.startDate
+		? new Date(anime.attributes.startDate).toLocaleDateString("en-US", {
 				year: "numeric",
 				month: "short",
 				day: "numeric",
