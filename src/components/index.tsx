@@ -2,6 +2,7 @@ export { CardAnime } from "./CardAnime";
 export { HeadListAnime } from "./HeadListAnime";
 export { ListAnime } from "./ListAnime";
 export { ModalFilters } from "./ModalFilters";
+export { ResultAnime } from "./ResultAnime";
 export { SafeAreaViewContainer } from "./SafeAreaViewContainer";
 export { TabIcon } from "./TabIcon";
 export { Title } from "./Title";
