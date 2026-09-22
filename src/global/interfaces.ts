@@ -53,6 +53,7 @@ export interface IAnimeCatalogStoreExtended
 export interface IModalFilters {
 	showModal: boolean;
 	handlePressShowModal: () => void;
+	handlePressResetFilters: () => void;
 	handlePressSelectType: (
 		idFilter: number,
 		selectTypeValue: TSelectType,

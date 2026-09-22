@@ -64,6 +64,18 @@ export default function Search() {
 		}));
 	};
 
+	const handlePressResetFilters = (): void => {
+		setSearchState((prevState) => ({
+			...prevState,
+			filters: {
+				type: "All",
+				category: "All",
+				SeasonYear: "All",
+				status: "All",
+			},
+		}));
+	};
+
 	useEffect(() => {
 		const delayDebounceFn = setTimeout(() => {
 			fetchAnimes(searchState.query, searchState.filters);
@@ -129,6 +141,7 @@ export default function Search() {
 				showModal={searchState.showModal}
 				handlePressShowModal={handlePressShowModal}
 				handlePressSelectType={handlePressSelectType}
+				handlePressResetFilters={handlePressResetFilters}
 				selectTypeValue={searchState.filters}
 			/>
 		</SafeAreaViewContainer>

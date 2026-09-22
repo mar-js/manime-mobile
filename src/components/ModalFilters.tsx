@@ -7,6 +7,7 @@ export const ModalFilters = ({
 	showModal,
 	handlePressShowModal,
 	handlePressSelectType,
+	handlePressResetFilters,
 	selectTypeValue,
 }: IModalFilters) => {
 	const handlerStyleFilter = (id: number, filter: TSelectType) => {
@@ -41,7 +42,12 @@ export const ModalFilters = ({
 						onPress={handlePressShowModal}
 					>
 						<Text className="text-xl font-bold">Filtros</Text>
-						<Ionicons name="close" size={24} color="#6b7280" />
+						<View className="flex-row gap-2 justify-between items-center">
+							<TouchableOpacity onPress={handlePressResetFilters}>
+								<Ionicons name="refresh" size={24} color="#6b7280" />
+							</TouchableOpacity>
+							<Ionicons name="close" size={24} color="#6b7280" />
+						</View>
 					</TouchableOpacity>
 					<View className="w-full h-[1px] bg-gray-500 my-3" />
 					<ScrollView
