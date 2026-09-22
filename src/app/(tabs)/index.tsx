@@ -1,4 +1,5 @@
 import {
+	CardAnime,
 	ListAnime,
 	SafeAreaViewContainer,
 	Title,
@@ -47,6 +48,7 @@ export default function Index() {
 						animes={trending.data}
 						isLoading={trending.isLoadingMore}
 						handlerScrollInfinite={fetchTrendingNextPage}
+						renderAnimeItem={CardAnime}
 					/>
 				)}
 				{animes.isLoading ? (
@@ -57,6 +59,7 @@ export default function Index() {
 						animes={animes.data}
 						isLoading={animes.isLoadingMore}
 						handlerScrollInfinite={fetchAnimesNextPage}
+						renderAnimeItem={CardAnime}
 					/>
 				)}
 			</ScrollView>
