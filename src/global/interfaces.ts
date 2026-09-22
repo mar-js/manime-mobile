@@ -36,9 +36,36 @@ export type TCategoryAnime =
 	| "sci-fi"
 	| "slice-of-life";
 
+export type TSelectType =
+	| TTypeAnime
+	| TStatusAnime
+	| TSeasonYearAnime
+	| TCategoryAnime;
+
 export interface IModalFilters {
 	showModal: boolean;
 	handlePressShowModal: () => void;
+	handlePressSelectType: (
+		idFilter: number,
+		selectTypeValue: TSelectType,
+	) => void;
+	selectTypeValue: {
+		type: TTypeAnime;
+		category: TCategoryAnime;
+		SeasonYear: TSeasonYearAnime;
+		status: TStatusAnime;
+	};
+}
+
+export interface ISearchState {
+	query: string;
+	showModal: boolean;
+	filters: {
+		type: TTypeAnime;
+		category: TCategoryAnime;
+		SeasonYear: TSeasonYearAnime;
+		status: TStatusAnime;
+	};
 }
 
 export interface ITitle {
