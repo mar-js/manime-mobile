@@ -1,6 +1,7 @@
 import {
 	CardAnime,
 	ListAnime,
+	Loader,
 	SafeAreaViewContainer,
 	Title,
 	TopSlider,
@@ -9,7 +10,7 @@ import { dataMainSlider } from "@/global/data";
 import { useAnimeCatalogStore } from "@/stores";
 import { useFocusEffect } from "expo-router";
 import { useCallback } from "react";
-import { ActivityIndicator, ScrollView } from "react-native";
+import { ScrollView } from "react-native";
 
 export default function Index() {
 	const {
@@ -40,24 +41,26 @@ export default function Index() {
 				}}
 			>
 				<TopSlider data={dataMainSlider} />
-				{trending.isLoading ? (
-					<ActivityIndicator size="large" color="#ffdc5e" className="my-10" />
+				{trending.isLoading && trending.data.length === 0 ? (
+					<Loader />
 				) : (
 					<ListAnime
 						title="En Tendencia"
 						animes={trending.data}
-						isLoading={trending.isLoadingMore}
+						isLoading={trending.isLoading}
+						isLoadingMore={trending.isLoadingMore}
 						handlerScrollInfinite={fetchTrendingNextPage}
 						renderAnimeItem={CardAnime}
 					/>
 				)}
-				{animes.isLoading ? (
-					<ActivityIndicator size="large" color="#ffdc5e" className="my-10" />
+				{animes.isLoading && animes.data.length === 0 ? (
+					<Loader />
 				) : (
 					<ListAnime
 						title="Popular"
 						animes={animes.data}
-						isLoading={animes.isLoadingMore}
+						isLoading={animes.isLoading}
+						isLoadingMore={animes.isLoadingMore}
 						handlerScrollInfinite={fetchAnimesNextPage}
 						renderAnimeItem={CardAnime}
 					/>
