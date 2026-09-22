@@ -1,6 +1,6 @@
 import type { AnimeItem } from "@/global/interfaces";
 import { useRouter } from "expo-router";
-import { Image, Pressable, Text, View } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 
 export const CardAnime = (anime: AnimeItem) => {
 	const router = useRouter();
@@ -14,7 +14,7 @@ export const CardAnime = (anime: AnimeItem) => {
 	};
 
 	return (
-		<Pressable onPress={handlerNavigationAnime}>
+		<TouchableOpacity onPress={handlerNavigationAnime}>
 			<View className="gap-2">
 				<Image
 					source={{
@@ -35,6 +35,6 @@ export const CardAnime = (anime: AnimeItem) => {
 					{anime.attributes.canonicalTitle}
 				</Text>
 			</View>
-		</Pressable>
+		</TouchableOpacity>
 	);
 };

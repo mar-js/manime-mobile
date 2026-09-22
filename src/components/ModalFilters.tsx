@@ -1,7 +1,7 @@
 import { dataModalFilter } from "@/global/data";
 import type { IModalFilters, TSelectType } from "@/global/interfaces";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { Modal, Pressable, ScrollView, Text, View } from "react-native";
+import { Modal, ScrollView, Text, TouchableOpacity, View } from "react-native";
 
 export const ModalFilters = ({
 	showModal,
@@ -36,13 +36,13 @@ export const ModalFilters = ({
 		>
 			<View className="flex-1 justify-end items-center bg-black/50">
 				<View className="w-full h-[600px] bg-white rounded-xl p-5">
-					<Pressable
+					<TouchableOpacity
 						className="flex-row justify-between items-center"
 						onPress={handlePressShowModal}
 					>
 						<Text className="text-xl font-bold">Filtros</Text>
 						<Ionicons name="close" size={24} color="#6b7280" />
-					</Pressable>
+					</TouchableOpacity>
 					<View className="w-full h-[1px] bg-gray-200 my-3" />
 
 					<ScrollView
@@ -61,7 +61,7 @@ export const ModalFilters = ({
 											itemAnime,
 										);
 										return (
-											<Pressable
+											<TouchableOpacity
 												onPress={() =>
 													handlePressSelectType(itemModalFilter.id, itemAnime)
 												}
@@ -73,7 +73,7 @@ export const ModalFilters = ({
 												>
 													{itemAnime}
 												</Text>
-											</Pressable>
+											</TouchableOpacity>
 										);
 									})}
 								</View>
