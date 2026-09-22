@@ -1,6 +1,5 @@
 import type { IListAnime } from "@/global/interfaces";
 import { ActivityIndicator, FlatList, Text, View } from "react-native";
-import { CardAnime } from "./CardAnime";
 import { HeadListAnime } from "./HeadListAnime";
 
 export const ListAnime = ({
@@ -8,6 +7,7 @@ export const ListAnime = ({
 	animes,
 	isLoading,
 	handlerScrollInfinite,
+	renderAnimeItem,
 }: IListAnime) => (
 	<View className="w-full">
 		<HeadListAnime title={title} />
@@ -21,7 +21,7 @@ export const ListAnime = ({
 				justifyContent: "center",
 				alignItems: "center",
 			}}
-			renderItem={({ item }) => <CardAnime {...item} />}
+			renderItem={({ item }) => renderAnimeItem(item)}
 			onEndReached={handlerScrollInfinite}
 			onEndReachedThreshold={0.5}
 			ListEmptyComponent={
