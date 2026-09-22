@@ -1,8 +1,9 @@
 import type { AnimeItem } from "@/global/interfaces";
 import { useRouter } from "expo-router";
 import { Image, Text, TouchableOpacity, View } from "react-native";
+import type { JSX } from "react/jsx-runtime";
 
-export const CardAnime = (anime: AnimeItem) => {
+export const CardAnime = (anime: AnimeItem): JSX.Element => {
 	const router = useRouter();
 	const image = [
 		anime.attributes.posterImage,
