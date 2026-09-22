@@ -8,7 +8,7 @@ export const ResultAnime = (anime: AnimeItem): JSX.Element => {
 	const router = useRouter();
 
 	const handlerNavigationAnime = () => {
-		router.push("/animes/[id]");
+		router.push(`/animes/${anime.id}`);
 	};
 
 	const title =
