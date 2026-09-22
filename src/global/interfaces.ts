@@ -1,5 +1,5 @@
 import type Ionicons from "@expo/vector-icons/Ionicons";
-import type { ComponentProps, JSX } from "react";
+import type { ComponentProps, ComponentType, JSX } from "react";
 import type { ImageSourcePropType } from "react-native";
 
 export type TIoniconsName = ComponentProps<typeof Ionicons>["name"];
@@ -96,11 +96,14 @@ export interface IHeadListAnime {
 
 export interface IListAnime {
 	title?: string;
+	horizontal: boolean;
 	animes: AnimeItem[];
 	isLoading: boolean;
 	isLoadingMore: boolean;
 	handlerScrollInfinite: () => void;
-	renderAnimeItem: (item: AnimeItem) => JSX.Element;
+	RenderComponent: ComponentType<
+		{ anime: AnimeItem } & JSX.IntrinsicAttributes
+	>;
 }
 
 export interface IAnimeCatalogStore {
