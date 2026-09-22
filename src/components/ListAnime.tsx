@@ -12,7 +12,7 @@ export const ListAnime = ({
 	renderAnimeItem,
 }: IListAnime) => (
 	<View className="w-full">
-		<HeadListAnime title={title} />
+		{title && <HeadListAnime title={title} />}
 		<FlatList
 			data={animes}
 			keyExtractor={(item, index) => `${item.id}-${index}`}
@@ -36,7 +36,9 @@ export const ListAnime = ({
 			ListEmptyComponent={
 				!isLoading ? (
 					<View className="flex-1 justify-center items-center m-10">
-						<Ionicons name="search-outline" size={50} color="#9ca3af" />
+						{title && (
+							<Ionicons name="search-outline" size={50} color="#9ca3af" />
+						)}
 						<Text className="text-gray-500 text-lg mt-2 font-medium">
 							No results found
 						</Text>
