@@ -1,35 +1,7 @@
-import {
-	dataCategoriesAnime,
-	dataSeasonYearAnime,
-	dataStatusAnime,
-	dataTypesAnime,
-} from "@/global/data";
+import { dataModalFilter } from "@/global/data";
 import type { IModalFilters, TSelectType } from "@/global/interfaces";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Modal, Pressable, ScrollView, Text, View } from "react-native";
-
-const dataModalFilter = [
-	{
-		id: 1,
-		title: "Tipos",
-		data: dataTypesAnime,
-	},
-	{
-		id: 2,
-		title: "Categorias",
-		data: dataCategoriesAnime,
-	},
-	{
-		id: 3,
-		title: "Años de temporadas",
-		data: dataSeasonYearAnime,
-	},
-	{
-		id: 4,
-		title: "Estados",
-		data: dataStatusAnime,
-	},
-];
 
 export const ModalFilters = ({
 	showModal,
@@ -37,30 +9,23 @@ export const ModalFilters = ({
 	handlePressSelectType,
 	selectTypeValue,
 }: IModalFilters) => {
-	const handlerStyleFilter = (id: number, filter: TSelectType) => ({
-		bg: [
+	const handlerStyleFilter = (id: number, filter: TSelectType) => {
+		const currentSelected =
 			id === 1
 				? selectTypeValue.type
 				: id === 2
 					? selectTypeValue.category
 					: id === 3
 						? selectTypeValue.SeasonYear
-						: selectTypeValue.status,
-		].includes(filter)
-			? "bg-gray-500"
-			: "bg-white",
-		text: [
-			id === 1
-				? selectTypeValue.type
-				: id === 2
-					? selectTypeValue.category
-					: id === 3
-						? selectTypeValue.SeasonYear
-						: selectTypeValue.status,
-		].includes(filter)
-			? "text-white"
-			: "text-gray-500",
-	});
+						: selectTypeValue.status;
+
+		const isSelected = currentSelected === filter;
+
+		return {
+			bg: isSelected ? "bg-gray-500" : "bg-white",
+			text: isSelected ? "text-white" : "text-gray-500",
+		};
+	};
 
 	return (
 		<Modal
@@ -75,36 +40,42 @@ export const ModalFilters = ({
 						className="flex-row justify-between items-center"
 						onPress={handlePressShowModal}
 					>
-						<Text className="text-xl">Filtros</Text>
-						<Ionicons name="close" size={20} color="#6b7280" />
+						<Text className="text-xl font-bold">Filtros</Text>
+						<Ionicons name="close" size={24} color="#6b7280" />
 					</Pressable>
-					<View className="w-full h-[1px] bg-gray-500 my-2" />
+					<View className="w-full h-[1px] bg-gray-200 my-3" />
+
 					<ScrollView
-						showsHorizontalScrollIndicator={false}
-						contentContainerStyle={{
-							gap: 10,
-							paddingBottom: 20,
-						}}
+						showsVerticalScrollIndicator={false}
+						contentContainerStyle={{ gap: 15, paddingBottom: 20 }}
 					>
 						{dataModalFilter.map((itemModalFilter) => (
 							<View className="gap-2" key={itemModalFilter.id}>
-								<Text className="text-lg">{itemModalFilter.title}: </Text>
+								<Text className="text-lg font-semibold text-gray-700">
+									{itemModalFilter.title}:
+								</Text>
 								<View className="gap-2 flex-row flex-wrap items-center">
-									{itemModalFilter.data.map((itemAnime) => (
-										<Pressable
-											onPress={() =>
-												handlePressSelectType(itemModalFilter.id, itemAnime)
-											}
-											key={itemAnime}
-											className={`py-2 px-4 border border-gray-500 rounded-xl ${handlerStyleFilter(itemModalFilter.id, itemAnime).bg}`}
-										>
-											<Text
-												className={`w-full text-sm ${handlerStyleFilter(itemModalFilter.id, itemAnime).text}`}
+									{itemModalFilter.data.map((itemAnime) => {
+										const currentStyles = handlerStyleFilter(
+											itemModalFilter.id,
+											itemAnime,
+										);
+										return (
+											<Pressable
+												onPress={() =>
+													handlePressSelectType(itemModalFilter.id, itemAnime)
+												}
+												key={itemAnime}
+												className={`py-2 px-4 border border-gray-400 rounded-xl ${currentStyles.bg}`}
 											>
-												{itemAnime}
-											</Text>
-										</Pressable>
-									))}
+												<Text
+													className={`text-sm font-medium ${currentStyles.text}`}
+												>
+													{itemAnime}
+												</Text>
+											</Pressable>
+										);
+									})}
 								</View>
 							</View>
 						))}
