@@ -35,7 +35,7 @@ export const ModalFilters = ({
 			onRequestClose={handlePressShowModal}
 		>
 			<View className="flex-1 justify-end items-center bg-black/50">
-				<View className="w-full h-[600px] bg-white rounded-xl p-5">
+				<View className="w-full h-[700px] bg-white rounded-xl p-5">
 					<TouchableOpacity
 						className="flex-row justify-between items-center"
 						onPress={handlePressShowModal}
@@ -43,8 +43,7 @@ export const ModalFilters = ({
 						<Text className="text-xl font-bold">Filtros</Text>
 						<Ionicons name="close" size={24} color="#6b7280" />
 					</TouchableOpacity>
-					<View className="w-full h-[1px] bg-gray-200 my-3" />
-
+					<View className="w-full h-[1px] bg-gray-500 my-3" />
 					<ScrollView
 						showsVerticalScrollIndicator={false}
 						contentContainerStyle={{ gap: 15, paddingBottom: 20 }}
@@ -79,6 +78,14 @@ export const ModalFilters = ({
 								</View>
 							</View>
 						))}
+						<TouchableOpacity
+							onPress={handlePressShowModal}
+							className="bg-[#ffdc5e] py-3 rounded-xl"
+						>
+							<Text className="text-center text-gray-500 font-semibold text-lg">
+								Aplicar filtros
+							</Text>
+						</TouchableOpacity>
 					</ScrollView>
 				</View>
 			</View>
