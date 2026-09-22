@@ -42,14 +42,6 @@ export type TSelectType =
 	| TSeasonYearAnime
 	| TCategoryAnime;
 
-export interface IListResultAnime {
-	data: AnimeItem[];
-	isLoading: boolean;
-	isLoadingMore: boolean;
-	fetchAnimesNextPage: () => Promise<void>;
-	renderAnimeItem: (item: AnimeItem) => JSX.Element;
-}
-
 export interface IAnimeCatalogStoreExtended
 	extends Omit<IAnimeCatalogStore, "fetchAnimes"> {
 	fetchAnimes: (
@@ -103,12 +95,12 @@ export interface IHeadListAnime {
 }
 
 export interface IListAnime {
-	title: string;
+	title?: string;
 	animes: AnimeItem[];
 	isLoading: boolean;
 	isLoadingMore: boolean;
 	handlerScrollInfinite: () => void;
-	renderAnimeItem: (item: AnimeItem) => JSX.Element;
+	renderAnimeItem: (_item: AnimeItem) => JSX.Element;
 }
 
 export interface IAnimeCatalogStore {
