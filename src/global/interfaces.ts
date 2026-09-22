@@ -42,6 +42,14 @@ export type TSelectType =
 	| TSeasonYearAnime
 	| TCategoryAnime;
 
+export interface IAnimeCatalogStoreExtended
+	extends Omit<IAnimeCatalogStore, "fetchAnimes"> {
+	fetchAnimes: (
+		query?: string,
+		filters?: ISearchState["filters"],
+	) => Promise<void>;
+}
+
 export interface IModalFilters {
 	showModal: boolean;
 	handlePressShowModal: () => void;
