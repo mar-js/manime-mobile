@@ -2,11 +2,20 @@ import type {
 	IAnimeSectionState,
 	IDataMainSlider,
 	IDataTabs,
+	ISearchState,
 	TCategoryAnime,
 	TSeasonYearAnime,
 	TStatusAnime,
 	TTypeAnime,
 } from "./interfaces";
+
+export const dataKitsuFilterMap: Record<keyof ISearchState["filters"], string> =
+	{
+		type: "subtype",
+		category: "categories",
+		SeasonYear: "seasonYear",
+		status: "status",
+	};
 
 export const dataTypesAnime: TTypeAnime[] = [
 	"All",
