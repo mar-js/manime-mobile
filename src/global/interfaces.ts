@@ -106,6 +106,7 @@ export interface IListAnime {
 	title: string;
 	animes: AnimeItem[];
 	isLoading: boolean;
+	isLoadingMore: boolean;
 	handlerScrollInfinite: () => void;
 	renderAnimeItem: (item: AnimeItem) => JSX.Element;
 }
