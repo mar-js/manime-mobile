@@ -104,11 +104,12 @@ export default function Search() {
 				<Loader />
 			) : (
 				<ListAnime
+					horizontal={false}
 					animes={animes.data}
 					isLoading={animes.isLoading}
 					isLoadingMore={animes.isLoadingMore}
 					handlerScrollInfinite={fetchAnimesNextPage}
-					renderAnimeItem={(item) => <ResultAnime {...item} />}
+					RenderComponent={({ anime }) => <ResultAnime {...anime} />}
 				/>
 			)}
 			<ModalFilters

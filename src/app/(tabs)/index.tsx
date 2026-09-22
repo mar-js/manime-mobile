@@ -45,24 +45,26 @@ export default function Index() {
 					<Loader />
 				) : (
 					<ListAnime
+						horizontal
 						title="En Tendencia"
 						animes={trending.data}
 						isLoading={trending.isLoading}
 						isLoadingMore={trending.isLoadingMore}
 						handlerScrollInfinite={fetchTrendingNextPage}
-						renderAnimeItem={CardAnime}
+						RenderComponent={({ anime }) => <CardAnime {...anime} />}
 					/>
 				)}
 				{animes.isLoading && animes.data.length === 0 ? (
 					<Loader />
 				) : (
 					<ListAnime
+						horizontal
 						title="Popular"
 						animes={animes.data}
 						isLoading={animes.isLoading}
 						isLoadingMore={animes.isLoadingMore}
 						handlerScrollInfinite={fetchAnimesNextPage}
-						renderAnimeItem={(item) => <CardAnime {...item} />}
+						RenderComponent={({ anime }) => <CardAnime {...anime} />}
 					/>
 				)}
 			</ScrollView>
