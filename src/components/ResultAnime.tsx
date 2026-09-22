@@ -13,8 +13,10 @@ export const ResultAnime = (anime: AnimeItem): JSX.Element => {
 
 	const title =
 		anime.attributes.canonicalTitle || anime.attributes.titles.en || "No Title";
-	const imageUrl =
-		anime.attributes.posterImage?.small || anime.attributes.posterImage?.medium;
+	const image = [
+		anime.attributes.posterImage,
+		anime.attributes.coverImage,
+	].filter((img) => img !== null)[0];
 	const subtype = anime.attributes.subtype || "N/A";
 	const status = anime.attributes.status || "Unknown";
 	const date = anime.attributes.startDate
@@ -31,9 +33,9 @@ export const ResultAnime = (anime: AnimeItem): JSX.Element => {
 			className="flex-1 m-2 bg-white rounded-xl overflow-hidden shadow-sm"
 		>
 			<View className="h-56 w-full">
-				{imageUrl ? (
+				{image ? (
 					<Image
-						source={{ uri: imageUrl }}
+						source={{ uri: image.original }}
 						className="w-full h-full"
 						resizeMode="cover"
 					/>

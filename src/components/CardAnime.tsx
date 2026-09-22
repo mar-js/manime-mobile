@@ -8,7 +8,7 @@ export const CardAnime = (anime: AnimeItem): JSX.Element => {
 	const image = [
 		anime.attributes.posterImage,
 		anime.attributes.coverImage,
-	].filter((image) => image !== null)[0];
+	].filter((img) => img !== null)[0];
 
 	const handlerNavigationAnime = () => {
 		router.push("/animes/[id]");
