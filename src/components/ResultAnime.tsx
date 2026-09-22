@@ -37,7 +37,7 @@ export const ResultAnime = (anime: AnimeItem): JSX.Element => {
 					<Image
 						source={{ uri: image.original }}
 						className="w-full h-full"
-						resizeMode="cover"
+						resizeMode="stretch"
 					/>
 				) : (
 					<View className="flex-1 justify-center items-center">
