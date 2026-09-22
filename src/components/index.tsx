@@ -1,7 +1,6 @@
 export { CardAnime } from "./CardAnime";
 export { HeadListAnime } from "./HeadListAnime";
 export { ListAnime } from "./ListAnime";
-export { ListResultAnime } from "./ListResultAnime";
 export { Loader } from "./Loader";
 export { ModalFilters } from "./ModalFilters";
 export { ResultAnime } from "./ResultAnime";
