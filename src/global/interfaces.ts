@@ -1,5 +1,5 @@
 import type Ionicons from "@expo/vector-icons/Ionicons";
-import type { ComponentProps } from "react";
+import type { ComponentProps, JSX } from "react";
 import type { ImageSourcePropType } from "react-native";
 
 export type TIoniconsName = ComponentProps<typeof Ionicons>["name"];
@@ -41,6 +41,14 @@ export type TSelectType =
 	| TStatusAnime
 	| TSeasonYearAnime
 	| TCategoryAnime;
+
+export interface IListResultAnime {
+	data: AnimeItem[];
+	isLoading: boolean;
+	isLoadingMore: boolean;
+	fetchAnimesNextPage: () => Promise<void>;
+	renderAnimeItem: (item: AnimeItem) => JSX.Element;
+}
 
 export interface IAnimeCatalogStoreExtended
 	extends Omit<IAnimeCatalogStore, "fetchAnimes"> {
