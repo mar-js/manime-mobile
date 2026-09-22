@@ -71,7 +71,7 @@ export default function Search() {
 	return (
 		<SafeAreaViewContainer>
 			<Title isVisibleBackBtn />
-			<View className="gap-5 mb-4">
+			<View className="gap-5">
 				<View className="flex-row items-center justify-between bg-[#ffdc5e] shadow-lg shadow-yellow-500 py-2 px-4 rounded-full">
 					<View className="flex-row items-center justify-center flex-1 mr-2">
 						<Ionicons
