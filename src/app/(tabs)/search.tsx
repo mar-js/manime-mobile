@@ -1,12 +1,23 @@
-import { ModalFilters, SafeAreaViewContainer, Title } from "@/components";
+import {
+	ListResultAnime,
+	ModalFilters,
+	ResultAnime,
+	SafeAreaViewContainer,
+	Title,
+} from "@/components";
 import type { ISearchState, TSelectType } from "@/global/interfaces";
 import { useAnimeCatalogStore } from "@/stores";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useEffect, useState } from "react";
-import { TextInput, TouchableOpacity, View } from "react-native";
+import {
+	ActivityIndicator,
+	TextInput,
+	TouchableOpacity,
+	View,
+} from "react-native";
 
 export default function Search() {
-	const { animes, fetchAnimes } = useAnimeCatalogStore();
+	const { animes, fetchAnimes, fetchAnimesNextPage } = useAnimeCatalogStore();
 
 	const [searchState, setSearchState] = useState<ISearchState>({
 		query: "",
@@ -64,7 +75,7 @@ export default function Search() {
 	return (
 		<SafeAreaViewContainer>
 			<Title isVisibleBackBtn />
-			<View className="gap-5">
+			<View className="gap-5 mb-4">
 				<View className="flex-row items-center justify-between bg-[#ffdc5e] shadow-lg shadow-yellow-500 py-2 px-4 rounded-full">
 					<View className="flex-row items-center justify-center flex-1 mr-2">
 						<Ionicons
@@ -93,6 +104,19 @@ export default function Search() {
 					</View>
 				</View>
 			</View>
+			{animes.isLoading && animes.data.length === 0 ? (
+				<View className="flex-1 justify-center items-center">
+					<ActivityIndicator size="large" color="#6b7280" />
+				</View>
+			) : (
+				<ListResultAnime
+					data={animes.data}
+					isLoadingMore={animes.isLoadingMore}
+					isLoading={animes.isLoading}
+					fetchAnimesNextPage={fetchAnimesNextPage}
+					renderAnimeItem={ResultAnime}
+				/>
+			)}
 			<ModalFilters
 				showModal={searchState.showModal}
 				handlePressShowModal={handlePressShowModal}
