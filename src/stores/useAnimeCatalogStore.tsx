@@ -1,5 +1,5 @@
 import { API_TRENDING_ANIME } from "@/global/constants";
-import { initialSectionState } from "@/global/data";
+import { initialFavoriteState, initialSectionState } from "@/global/data";
 import type {
 	AnimeItem,
 	IAnimeCatalogStoreExtended,
@@ -11,7 +11,7 @@ export const useAnimeCatalogStore = create<IAnimeCatalogStoreExtended>(
 	(set, get) => ({
 		animes: { ...initialSectionState },
 		trending: { ...initialSectionState },
-		favorites: { ...initialSectionState },
+		favorites: { ...initialFavoriteState },
 		fetchAnimes: async (query?, filters?) => {
 			set((state) => ({
 				animes: { ...state.animes, isLoading: true, error: null },
