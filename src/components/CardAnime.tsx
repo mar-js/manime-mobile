@@ -26,7 +26,7 @@ export const CardAnime = (anime: AnimeItem): JSX.Element => {
 	};
 
 	return (
-		<TouchableOpacity onPress={handlerNavigationAnime}>
+		<TouchableOpacity onPress={handlerNavigationAnime} className="m-2 w-40">
 			<View className="gap-2 relative">
 				<TouchableOpacity
 					onPress={handleFavoriteAnime}
@@ -44,7 +44,7 @@ export const CardAnime = (anime: AnimeItem): JSX.Element => {
 					}}
 					resizeMode="stretch"
 					style={{
-						width: 150,
+						width: "100%",
 						height: 200,
 					}}
 					className="rounded-xl"

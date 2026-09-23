@@ -22,9 +22,8 @@ export const ListAnime = ({
 			showsHorizontalScrollIndicator={false}
 			showsVerticalScrollIndicator={false}
 			contentContainerStyle={{
-				gap: 10,
 				justifyContent: "center",
-				alignItems: horizontal ? "center" : "stretch",
+				alignItems: "center",
 				paddingBottom: horizontal ? 0 : 100,
 			}}
 			renderItem={({ item }) => <RenderComponent anime={item} />}

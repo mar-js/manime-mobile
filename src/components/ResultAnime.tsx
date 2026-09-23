@@ -30,9 +30,9 @@ export const ResultAnime = (anime: AnimeItem): JSX.Element => {
 	return (
 		<TouchableOpacity
 			onPress={handlerNavigationAnime}
-			className="flex-1 m-2 bg-white rounded-xl overflow-hidden shadow-sm"
+			className="m-2 w-48 bg-white rounded-xl overflow-hidden shadow-sm"
 		>
-			<View className="h-56 w-full">
+			<View className="h-56">
 				{image ? (
 					<Image
 						source={{ uri: image.original }}
