@@ -92,6 +92,11 @@ export type TSelectType =
 	| TSeasonYearAnime
 	| TCategoryAnime;
 
+export interface IAnimeFavoriteState {
+	data: AnimeItem[];
+	error: string | null;
+}
+
 export interface IAnimeCatalogStoreExtended
 	extends Omit<IAnimeCatalogStore, "fetchAnimes"> {
 	fetchAnimes: (
