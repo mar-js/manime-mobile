@@ -272,23 +272,23 @@ export interface Dimensions {
 }
 
 export interface Tiny {
-	width: any;
-	height: any;
+	width: string | number;
+	height: string | number;
 }
 
 export interface Small {
-	width: any;
-	height: any;
+	width: string | number;
+	height: string | number;
 }
 
 export interface Medium {
-	width: any;
-	height: any;
+	width: string | number;
+	height: string | number;
 }
 
 export interface Large {
-	width: any;
-	height: any;
+	width: string | number;
+	height: string | number;
 }
 
 export interface CoverImage {
@@ -310,18 +310,18 @@ export interface Dimensions2 {
 }
 
 export interface Tiny2 {
-	width: any;
-	height: any;
+	width: string | number;
+	height: string | number;
 }
 
 export interface Small2 {
-	width: any;
-	height: any;
+	width: string | number;
+	height: string | number;
 }
 
 export interface Large2 {
-	width: any;
-	height: any;
+	width: string | number;
+	height: string | number;
 }
 
 export interface Relationships {
