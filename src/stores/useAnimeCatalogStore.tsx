@@ -1,6 +1,9 @@
 import { API_TRENDING_ANIME } from "@/global/constants";
 import { initialSectionState } from "@/global/data";
-import type { IAnimeCatalogStoreExtended } from "@/global/interfaces";
+import type {
+	AnimeItem,
+	IAnimeCatalogStoreExtended,
+} from "@/global/interfaces";
 import { getAnimes } from "@/services";
 import { create } from "zustand";
 
@@ -8,6 +11,7 @@ export const useAnimeCatalogStore = create<IAnimeCatalogStoreExtended>(
 	(set, get) => ({
 		animes: { ...initialSectionState },
 		trending: { ...initialSectionState },
+		favorites: { ...initialSectionState },
 		fetchAnimes: async (query?, filters?) => {
 			set((state) => ({
 				animes: { ...state.animes, isLoading: true, error: null },
@@ -125,6 +129,35 @@ export const useAnimeCatalogStore = create<IAnimeCatalogStoreExtended>(
 					},
 				}));
 			}
+		},
+		setFavoriteAnime: (anime: AnimeItem) => {
+			set((state) => {
+				const isAlreadyFavorite = state.favorites.data.some(
+					(favAnime) => favAnime.id === anime.id,
+				);
+
+				if (isAlreadyFavorite) {
+					return {
+						favorites: {
+							...state.favorites,
+							data: state.favorites.data.filter(
+								(favAnime) => favAnime.id !== anime.id,
+							),
+						},
+					};
+				} else {
+					return {
+						favorites: {
+							...state.favorites,
+							data: [...state.favorites.data, anime],
+						},
+					};
+				}
+			});
+		},
+		isSavedAsFavorite: (animeId: string) => {
+			const { favorites } = get();
+			return favorites.data.some((favAnime) => favAnime.id === animeId);
 		},
 	}),
 );
