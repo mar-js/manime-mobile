@@ -1,4 +1,5 @@
 import type {
+	IAnimeFavoriteState,
 	IAnimeSectionState,
 	IDataMainSlider,
 	IDataTabs,
@@ -112,6 +113,11 @@ export const initialSectionState: IAnimeSectionState = {
 	isLoading: false,
 	isLoadingMore: false,
 	nextPageUrl: null,
+	error: null,
+};
+
+export const initialFavoriteState: IAnimeFavoriteState = {
+	data: [],
 	error: null,
 };
 
