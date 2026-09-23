@@ -165,10 +165,13 @@ export interface IListAnime {
 export interface IAnimeCatalogStore {
 	animes: IAnimeSectionState;
 	trending: IAnimeSectionState;
+	favorites: IAnimeFavoriteState;
 	fetchAnimes: () => Promise<void>;
 	fetchAnimesNextPage: () => Promise<void>;
 	fetchTrending: () => Promise<void>;
 	fetchTrendingNextPage: () => Promise<void>;
+	setFavoriteAnime: (anime: AnimeItem) => void;
+	isSavedAsFavorite: (animeId: string) => boolean;
 }
 
 export interface IAnimeSectionState {
