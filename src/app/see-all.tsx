@@ -1,0 +1,43 @@
+import { CardAnime, ListAnime, SafeAreaViewContainer } from "@/components";
+import { useAnimeCatalogStore } from "@/stores";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import { useLocalSearchParams, useRouter } from "expo-router";
+import { Text, TouchableOpacity, View } from "react-native";
+
+export default function SeeAll() {
+	const router = useRouter();
+	const { type, title } = useLocalSearchParams<{
+		type: string;
+		title: string;
+	}>();
+	const { animes, trending, fetchAnimesNextPage, fetchTrendingNextPage } =
+		useAnimeCatalogStore();
+	const isTrending = type === "trending";
+	const sectionData = isTrending ? trending : animes;
+	const loadMoreFn = isTrending ? fetchTrendingNextPage : fetchAnimesNextPage;
+
+	const handleBackNavigation = () => {
+		router.back();
+	};
+
+	return (
+		<SafeAreaViewContainer>
+			<View className="flex-row items-center gap-3">
+				<TouchableOpacity onPress={handleBackNavigation}>
+					<Ionicons name="arrow-back" size={20} color="white" />
+				</TouchableOpacity>
+				<Text className="text-xl font-bold text-white">
+					{title || "Ver Todo"}
+				</Text>
+			</View>
+			<ListAnime
+				horizontal={false}
+				animes={sectionData.data}
+				isLoading={sectionData.isLoading}
+				isLoadingMore={sectionData.isLoadingMore}
+				handlerScrollInfinite={loadMoreFn}
+				RenderComponent={({ anime }) => <CardAnime {...anime} />}
+			/>
+		</SafeAreaViewContainer>
+	);
+}
