@@ -95,6 +95,10 @@ export interface IAnimeCatalogStore {
 	fetchTrendingNextPage: () => Promise<void>;
 	setFavoriteAnime: (anime: AnimeItem) => void;
 	isSavedAsFavorite: (animeId: string) => boolean;
+	getAnimeByIdLocal: (
+		id: string,
+		favoriteAnimes?: AnimeItem[],
+	) => AnimeItem | null;
 }
 
 export interface IAnimeSectionState {
