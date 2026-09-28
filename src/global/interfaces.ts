@@ -92,6 +92,12 @@ export type TSelectType =
 	| TSeasonYearAnime
 	| TCategoryAnime;
 
+export interface IImageAnime {
+	image: string;
+	handleFavoriteAnime: () => void;
+	handleSavedAsFavorite: () => boolean;
+}
+
 export interface IAnimeFavoriteState {
 	data: AnimeItem[];
 	error: string | null;
