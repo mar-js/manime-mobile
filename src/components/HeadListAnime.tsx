@@ -11,7 +11,7 @@ export const HeadListAnime = ({ title }: IHeadListAnime): JSX.Element => {
 			<Text className="text-white text-2xl font-semibold">{title}</Text>
 			<Link
 				href={{
-					pathname: "/(tabs)/(stack)/see-all",
+					pathname: "/see-all",
 					params: { type: typeParam, title: title },
 				}}
 				asChild
