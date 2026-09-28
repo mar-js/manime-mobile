@@ -18,16 +18,22 @@ export const ImageAnime = ({
 				size={20}
 			/>
 		</TouchableOpacity>
-		<Image
-			source={{
-				uri: image,
-			}}
-			resizeMode="stretch"
-			style={{
-				width: "100%",
-				height: 200,
-			}}
-			className="rounded-xl"
-		/>
+		{image ? (
+			<Image
+				source={{
+					uri: image,
+				}}
+				resizeMode="stretch"
+				style={{
+					width: "100%",
+					height: 200,
+				}}
+				className="rounded-xl"
+			/>
+		) : (
+			<View className="flex-1 justify-center items-center">
+				<Ionicons name="image-outline" size={32} color="#9ca3af" />
+			</View>
+		)}
 	</View>
 );

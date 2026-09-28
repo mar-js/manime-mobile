@@ -1,6 +1,5 @@
 import type { AnimeItem } from "@/global/interfaces";
 import { useAnimeCatalogStore } from "@/stores";
-import Ionicons from "@expo/vector-icons/Ionicons";
 import { useRouter } from "expo-router";
 import { Text, TouchableOpacity, View } from "react-native";
 import type { JSX } from "react/jsx-runtime";
@@ -45,17 +44,11 @@ export const ResultAnime = (anime: AnimeItem): JSX.Element => {
 			className="m-2 w-48 bg-white rounded-xl overflow-hidden shadow-sm"
 		>
 			<View className="h-56">
-				{image ? (
-					<ImageAnime
-						image={image.original}
-						handleFavoriteAnime={handleFavoriteAnime}
-						handleSavedAsFavorite={handleSavedAsFavorite}
-					/>
-				) : (
-					<View className="flex-1 justify-center items-center">
-						<Ionicons name="image-outline" size={32} color="#9ca3af" />
-					</View>
-				)}
+				<ImageAnime
+					image={image.original}
+					handleFavoriteAnime={handleFavoriteAnime}
+					handleSavedAsFavorite={handleSavedAsFavorite}
+				/>
 			</View>
 			<View className="p-2">
 				<Text className="text-sm font-bold text-gray-800" numberOfLines={1}>
