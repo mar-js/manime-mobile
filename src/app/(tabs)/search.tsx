@@ -102,6 +102,7 @@ export default function Search() {
 							onChangeText={handleChangeQuery}
 							placeholder="Search..."
 							placeholderTextColor="#6b7280"
+							autoComplete="off"
 						/>
 					</View>
 					<View className="flex-row gap-3 items-center">
