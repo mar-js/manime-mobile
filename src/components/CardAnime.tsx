@@ -1,9 +1,9 @@
 import type { AnimeItem } from "@/global/interfaces";
 import { useAnimeCatalogStore } from "@/stores";
-import Ionicons from "@expo/vector-icons/Ionicons";
 import { useRouter } from "expo-router";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import type { JSX } from "react/jsx-runtime";
+import { ImageAnime } from "./ImageAnime";
 
 export const CardAnime = (anime: AnimeItem): JSX.Element => {
 	const { setFavoriteAnime, isSavedAsFavorite } = useAnimeCatalogStore();
@@ -27,27 +27,11 @@ export const CardAnime = (anime: AnimeItem): JSX.Element => {
 
 	return (
 		<TouchableOpacity onPress={handlerNavigationAnime} className="m-2 w-40">
-			<View className="gap-2 relative">
-				<TouchableOpacity
-					onPress={handleFavoriteAnime}
-					className="absolute top-2 right-2 z-50"
-				>
-					<Ionicons
-						name={handleSavedAsFavorite() ? "heart" : "heart-outline"}
-						color={handleSavedAsFavorite() ? "red" : "white"}
-						size={20}
-					/>
-				</TouchableOpacity>
-				<Image
-					source={{
-						uri: image.original,
-					}}
-					resizeMode="stretch"
-					style={{
-						width: "100%",
-						height: 200,
-					}}
-					className="rounded-xl"
+			<View className="gap-2">
+				<ImageAnime
+					image={image?.original ?? ""}
+					handleFavoriteAnime={handleFavoriteAnime}
+					handleSavedAsFavorite={handleSavedAsFavorite}
 				/>
 				<Text
 					className="max-w-40 text-white font-semibold"

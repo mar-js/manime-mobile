@@ -1,14 +1,26 @@
 import type { AnimeItem } from "@/global/interfaces";
+import { useAnimeCatalogStore } from "@/stores";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useRouter } from "expo-router";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import type { JSX } from "react/jsx-runtime";
+import { ImageAnime } from "./ImageAnime";
 
 export const ResultAnime = (anime: AnimeItem): JSX.Element => {
+	const { setFavoriteAnime, isSavedAsFavorite } = useAnimeCatalogStore();
+
 	const router = useRouter();
 
 	const handlerNavigationAnime = () => {
 		router.push(`/animes/${anime.id}`);
+	};
+
+	const handleFavoriteAnime = () => {
+		setFavoriteAnime(anime);
+	};
+
+	const handleSavedAsFavorite = () => {
+		return isSavedAsFavorite(anime.id);
 	};
 
 	const title =
@@ -34,10 +46,10 @@ export const ResultAnime = (anime: AnimeItem): JSX.Element => {
 		>
 			<View className="h-56">
 				{image ? (
-					<Image
-						source={{ uri: image.original }}
-						className="w-full h-full"
-						resizeMode="stretch"
+					<ImageAnime
+						image={image.original}
+						handleFavoriteAnime={handleFavoriteAnime}
+						handleSavedAsFavorite={handleSavedAsFavorite}
 					/>
 				) : (
 					<View className="flex-1 justify-center items-center">
