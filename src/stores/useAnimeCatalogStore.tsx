@@ -164,6 +164,23 @@ export const useAnimeCatalogStore = create<IAnimeCatalogStoreExtended>()(
 				const { favorites } = get();
 				return favorites.data.some((favAnime) => favAnime.id === animeId);
 			},
+			getAnimeByIdLocal: (
+				id: string,
+				favoriteAnimes: AnimeItem[] = [],
+			): AnimeItem | null => {
+				const { animes, trending } = get();
+
+				const foundInAnimes = animes.data.find((item) => item.id === id);
+				if (foundInAnimes) return foundInAnimes;
+
+				const foundInTrending = trending.data.find((item) => item.id === id);
+				if (foundInTrending) return foundInTrending;
+
+				const foundInFavorites = favoriteAnimes.find((item) => item.id === id);
+				if (foundInFavorites) return foundInFavorites;
+
+				return null;
+			},
 		}),
 		{
 			name: "anime-catalog-storage",
