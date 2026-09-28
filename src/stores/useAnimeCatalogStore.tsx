@@ -1,15 +1,12 @@
 import { API_TRENDING_ANIME } from "@/global/constants";
 import { initialFavoriteState, initialSectionState } from "@/global/data";
-import type {
-	AnimeItem,
-	IAnimeCatalogStoreExtended,
-} from "@/global/interfaces";
+import type { AnimeItem, IAnimeCatalogStore } from "@/global/interfaces";
 import { getAnimes } from "@/services";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
-export const useAnimeCatalogStore = create<IAnimeCatalogStoreExtended>()(
+export const useAnimeCatalogStore = create<IAnimeCatalogStore>()(
 	persist(
 		(set, get) => ({
 			animes: { ...initialSectionState },

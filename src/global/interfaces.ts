@@ -20,14 +20,6 @@ export interface IAnimeFavoriteState {
 	error: string | null;
 }
 
-export interface IAnimeCatalogStoreExtended
-	extends Omit<IAnimeCatalogStore, "fetchAnimes"> {
-	fetchAnimes: (
-		query?: string,
-		filters?: ISearchState["filters"],
-	) => Promise<void>;
-}
-
 export interface IModalFilters {
 	showModal: boolean;
 	handlePressShowModal: () => void;
@@ -89,7 +81,10 @@ export interface IAnimeCatalogStore {
 	animes: IAnimeSectionState;
 	trending: IAnimeSectionState;
 	favorites: IAnimeFavoriteState;
-	fetchAnimes: () => Promise<void>;
+	fetchAnimes: (
+		query?: string,
+		filters?: ISearchState["filters"],
+	) => Promise<void>;
 	fetchAnimesNextPage: () => Promise<void>;
 	fetchTrending: () => Promise<void>;
 	fetchTrendingNextPage: () => Promise<void>;
