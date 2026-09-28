@@ -32,7 +32,7 @@ export const ListAnime = ({
 			ListFooterComponent={
 				isLoadingMore ? (
 					<View className="py-4 justify-center items-center">
-						<ActivityIndicator size="small" color="#6b7280" />
+						<ActivityIndicator size="small" color="#ffdc5e" />
 					</View>
 				) : null
 			}
