@@ -24,7 +24,7 @@ export const ListAnime = ({
 			contentContainerStyle={{
 				justifyContent: "center",
 				alignItems: "center",
-				paddingBottom: horizontal ? 0 : 100,
+				paddingBottom: horizontal ? 0 : 150,
 			}}
 			renderItem={({ item }) => <RenderComponent anime={item} />}
 			onEndReached={handlerScrollInfinite}
