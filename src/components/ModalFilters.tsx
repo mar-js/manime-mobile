@@ -1,5 +1,6 @@
 import { dataModalFilter } from "@/global/data";
-import type { IModalFilters, TSelectType } from "@/global/interfaces";
+import type { IModalFilters } from "@/global/interfaces";
+import type { TSelectType } from "@/global/types";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Modal, ScrollView, Text, TouchableOpacity, View } from "react-native";
 

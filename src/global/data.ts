@@ -4,11 +4,13 @@ import type {
 	IDataMainSlider,
 	IDataTabs,
 	ISearchState,
+} from "./interfaces";
+import type {
 	TCategoryAnime,
 	TSeasonYearAnime,
 	TStatusAnime,
 	TTypeAnime,
-} from "./interfaces";
+} from "./types";
 
 export const dataKitsuFilterMap: Record<keyof ISearchState["filters"], string> =
 	{

@@ -6,7 +6,8 @@ import {
 	SafeAreaViewContainer,
 	Title,
 } from "@/components";
-import type { ISearchState, TSelectType } from "@/global/interfaces";
+import type { ISearchState } from "@/global/interfaces";
+import type { TSelectType } from "@/global/types";
 import { useAnimeCatalogStore } from "@/stores";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useEffect, useState } from "react";
