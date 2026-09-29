@@ -16,14 +16,14 @@ export default function SeeAll() {
 	const sectionData = isTrending ? trending : animes;
 	const loadMoreFn = isTrending ? fetchTrendingNextPage : fetchAnimesNextPage;
 
-	const handleBackNavigation = () => {
+	const handleNavigationBack = () => {
 		router.back();
 	};
 
 	return (
 		<SafeAreaViewContainer>
 			<View className="flex-row items-center gap-3">
-				<TouchableOpacity onPress={handleBackNavigation}>
+				<TouchableOpacity onPress={handleNavigationBack}>
 					<Ionicons name="arrow-back" size={20} color="white" />
 				</TouchableOpacity>
 				<Text className="text-xl font-bold text-white">
