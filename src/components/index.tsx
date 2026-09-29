@@ -1,5 +1,6 @@
 export { CardAnime } from "./CardAnime";
 export { HeadListAnime } from "./HeadListAnime";
+export { HeroAnime } from "./HeroAnime";
 export { ImageAnime } from "./ImageAnime";
 export { ListAnime } from "./ListAnime";
 export { Loader } from "./Loader";
