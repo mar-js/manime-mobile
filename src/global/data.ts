@@ -6,11 +6,19 @@ import type {
 	ISearchState,
 } from "./interfaces";
 import type {
+	TActiveTab,
 	TCategoryAnime,
 	TSeasonYearAnime,
 	TStatusAnime,
 	TTypeAnime,
 } from "./types";
+
+export const dataActiveTab: TActiveTab[] = [
+	"Resumen",
+	"Episodios",
+	"Reparto",
+	"Reseñas",
+];
 
 export const dataKitsuFilterMap: Record<keyof ISearchState["filters"], string> =
 	{
