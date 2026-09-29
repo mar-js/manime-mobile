@@ -10,6 +10,12 @@ import type {
 	TTypeAnime,
 } from "./types";
 
+export interface IBannerAnime {
+	posterUrl: string | undefined;
+	canonicalTitle: string;
+	titles: Titles;
+}
+
 export interface IHeroAnime {
 	bannerUrl: string;
 	insets: EdgeInsets;
