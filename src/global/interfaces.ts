@@ -13,7 +13,7 @@ import type {
 export interface IBannerAnime {
 	posterUrl: string | undefined;
 	canonicalTitle: string;
-	titles: Titles;
+	title: string;
 }
 
 export interface IHeroAnime {

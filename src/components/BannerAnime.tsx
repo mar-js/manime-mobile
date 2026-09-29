@@ -6,7 +6,7 @@ import type { JSX } from "react/jsx-runtime";
 export const BannerAnime = ({
 	posterUrl,
 	canonicalTitle,
-	titles,
+	title,
 }: IBannerAnime): JSX.Element => (
 	<LinearGradient
 		colors={[
@@ -34,9 +34,7 @@ export const BannerAnime = ({
 				<Text className="text-2xl font-bold text-white" numberOfLines={2}>
 					{canonicalTitle}
 				</Text>
-				<Text className="text-zinc-400 text-sm mt-1">
-					{titles.en_jp || titles.ja_jp || ""}
-				</Text>
+				<Text className="text-zinc-400 text-sm mt-1">{title}</Text>
 			</View>
 		</View>
 	</LinearGradient>
