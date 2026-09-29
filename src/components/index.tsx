@@ -1,3 +1,4 @@
+export { BannerAnime } from "./BannerAnime";
 export { CardAnime } from "./CardAnime";
 export { HeadListAnime } from "./HeadListAnime";
 export { HeroAnime } from "./HeroAnime";
