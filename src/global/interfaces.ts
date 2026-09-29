@@ -1,5 +1,6 @@
 import type { ComponentType, JSX } from "react";
 import type { ImageSourcePropType } from "react-native";
+import type { EdgeInsets } from "react-native-safe-area-context";
 import type {
 	TCategoryAnime,
 	TIoniconsName,
@@ -8,6 +9,15 @@ import type {
 	TStatusAnime,
 	TTypeAnime,
 } from "./types";
+
+export interface IHeroAnime {
+	bannerUrl: string;
+	insets: EdgeInsets;
+	handleNavigationBack: () => void;
+	handleToggleFavorite: () => void;
+	handleShareAnime: () => Promise<void>;
+	isFavorite: boolean;
+}
 
 export interface IImageAnime {
 	image: string;
