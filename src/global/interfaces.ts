@@ -11,6 +11,10 @@ import type {
 	TTypeAnime,
 } from "./types";
 
+export interface IAnimeEpisodesTab {
+	animeId: string;
+}
+
 export interface IAnimeEpisodesState {
 	data: EpisodeItem[];
 	isLoading: boolean;
