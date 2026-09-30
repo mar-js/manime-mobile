@@ -9,6 +9,7 @@ import type { TActiveTab } from "@/global/types";
 import { useAnimeCatalogStore } from "@/stores";
 import { LinearGradient } from "expo-linear-gradient";
 import { useLocalSearchParams, useRouter } from "expo-router";
+import { openBrowserAsync } from "expo-web-browser";
 import { useEffect, useState } from "react";
 import {
 	Alert,
@@ -84,6 +85,10 @@ export default function AnimeDetail() {
 		router.back();
 	};
 
+	const handleOpenLinkAnime = async (): Promise<void> => {
+		await openBrowserAsync(`https://kitsu.app/anime/${anime?.attributes.slug}`);
+	};
+
 	useEffect(() => {
 		if (id) {
 			const foundAnime = getAnimeByIdLocal(id, favoritesData);
@@ -124,9 +129,16 @@ export default function AnimeDetail() {
 						contentContainerStyle={{ padding: 20, gap: 20, paddingBottom: 100 }}
 					>
 						<BtnActiveTabs activeTab={activeTab} setActiveTab={setActiveTab} />
-						<ActiveTabs activeTab={activeTab} attributes={anime?.attributes} />
+						<ActiveTabs
+							activeTab={activeTab}
+							attributes={anime?.attributes}
+							animeId={anime?.id}
+						/>
 						<View>
-							<TouchableOpacity className="w-full bg-[#ffdc5e] py-4 rounded-full items-center active:opacity-90 shadow-lg shadow-yellow-600/30">
+							<TouchableOpacity
+								onPress={handleOpenLinkAnime}
+								className="w-full bg-[#ffdc5e] py-4 rounded-full items-center active:opacity-90 shadow-lg shadow-yellow-600/30"
+							>
 								<Text className="text-gray-500 font-bold text-lg uppercase tracking-wider">
 									Ver Ahora
 								</Text>
