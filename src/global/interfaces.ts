@@ -11,6 +11,49 @@ import type {
 	TTypeAnime,
 } from "./types";
 
+export interface IServiceAnimeEpisodesResponse {
+	data: EpisodeItem[];
+	meta: {
+		count: number;
+	};
+	links: {
+		first: string;
+		next?: string;
+		last: string;
+	};
+}
+
+export interface EpisodeItem {
+	id: string;
+	type: string;
+	links: {
+		self: string;
+	};
+	attributes: {
+		createdAt: string;
+		updatedAt: string;
+		synopsis: string | null;
+		description: string | null;
+		titles: {
+			en_jp?: string;
+			en_us?: string;
+			ja_jp?: string;
+		};
+		canonicalTitle: string;
+		seasonNumber: number;
+		number: number;
+		relativeNumber: number;
+		airdate: string;
+		length: number | null;
+		thumbnail: {
+			original: string | null;
+			meta: {
+				dimensions: any;
+			};
+		} | null;
+	};
+}
+
 export interface IBtnActiveTabs {
 	activeTab: TActiveTab;
 	setActiveTab: Dispatch<SetStateAction<TActiveTab>>;
@@ -19,6 +62,7 @@ export interface IBtnActiveTabs {
 export interface IActiveTabs {
 	activeTab: TActiveTab;
 	attributes: Attributes | undefined;
+	animeId: string;
 }
 
 export interface IBannerAnime {
@@ -108,6 +152,7 @@ export interface IAnimeCatalogStore {
 	animes: IAnimeSectionState;
 	trending: IAnimeSectionState;
 	favorites: IAnimeFavoriteState;
+	episodes: IAnimeSectionState;
 	fetchAnimes: (
 		query?: string,
 		filters?: ISearchState["filters"],
@@ -121,6 +166,8 @@ export interface IAnimeCatalogStore {
 		id: string,
 		favoriteAnimes?: AnimeItem[],
 	) => AnimeItem | null;
+	fetchEpisodes: (animeId: string) => Promise<void>;
+	fetchEpisodesNextPage: (animeId: string) => Promise<void>;
 }
 
 export interface IAnimeSectionState {
