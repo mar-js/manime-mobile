@@ -1,4 +1,4 @@
-import type { ComponentType, JSX } from "react";
+import type { ComponentType, Dispatch, JSX, SetStateAction } from "react";
 import type { ImageSourcePropType } from "react-native";
 import type { EdgeInsets } from "react-native-safe-area-context";
 import type {
@@ -10,6 +10,11 @@ import type {
 	TStatusAnime,
 	TTypeAnime,
 } from "./types";
+
+export interface IBtnActiveTabs {
+	activeTab: TActiveTab;
+	setActiveTab: Dispatch<SetStateAction<TActiveTab>>;
+}
 
 export interface IActiveTabs {
 	activeTab: TActiveTab;
