@@ -1,5 +1,9 @@
 import { API_TRENDING_ANIME } from "@/global/constants";
-import { initialFavoriteState, initialSectionState } from "@/global/data";
+import {
+	initialEpisodesState,
+	initialFavoriteState,
+	initialSectionState,
+} from "@/global/data";
 import type { AnimeItem, IAnimeCatalogStore } from "@/global/interfaces";
 import { getAnimeEpisodes, getAnimes } from "@/services";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -12,7 +16,7 @@ export const useAnimeCatalogStore = create<IAnimeCatalogStore>()(
 			animes: { ...initialSectionState },
 			trending: { ...initialSectionState },
 			favorites: { ...initialFavoriteState },
-			episodes: { ...initialSectionState },
+			episodes: { ...initialEpisodesState },
 			fetchAnimes: async (query?, filters?) => {
 				set((state) => ({
 					animes: { ...state.animes, isLoading: true, error: null },
