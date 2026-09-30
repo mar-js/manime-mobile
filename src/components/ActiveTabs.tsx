@@ -1,10 +1,12 @@
 import type { IActiveTabs } from "@/global/interfaces";
 import { Text, View } from "react-native";
 import type { JSX } from "react/jsx-runtime";
+import { AnimeEpisodesTab } from "./AnimeEpisodesTab";
 
 export const ActiveTabs = ({
 	activeTab,
 	attributes,
+	animeId,
 }: IActiveTabs): JSX.Element => (
 	<View>
 		{activeTab === "Resumen" && (
@@ -44,11 +46,7 @@ export const ActiveTabs = ({
 				</View>
 			</View>
 		)}
-		{activeTab === "Episodios" && (
-			<Text className="text-gray-500 text-center">
-				Lista de episodios (Local/N/A)
-			</Text>
-		)}
+		{activeTab === "Episodios" && <AnimeEpisodesTab animeId={animeId} />}
 		{activeTab === "Reparto" && (
 			<Text className="text-gray-500 text-center">
 				Información del reparto de voces
