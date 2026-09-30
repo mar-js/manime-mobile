@@ -1,4 +1,5 @@
 import type {
+	IAnimeEpisodesState,
 	IAnimeFavoriteState,
 	IAnimeSectionState,
 	IDataMainSlider,
@@ -117,6 +118,14 @@ export const dataCategoriesAnime: TCategoryAnime[] = [
 	"sci-fi",
 	"slice-of-life",
 ];
+
+export const initialEpisodesState: IAnimeEpisodesState = {
+	data: [],
+	isLoading: false,
+	isLoadingMore: false,
+	nextPageUrl: null,
+	error: null,
+};
 
 export const initialSectionState: IAnimeSectionState = {
 	data: [],
