@@ -1,7 +1,7 @@
 import { API_TRENDING_ANIME } from "@/global/constants";
 import { initialFavoriteState, initialSectionState } from "@/global/data";
 import type { AnimeItem, IAnimeCatalogStore } from "@/global/interfaces";
-import { getAnimes } from "@/services";
+import { getAnimeEpisodes, getAnimes } from "@/services";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
@@ -12,6 +12,7 @@ export const useAnimeCatalogStore = create<IAnimeCatalogStore>()(
 			animes: { ...initialSectionState },
 			trending: { ...initialSectionState },
 			favorites: { ...initialFavoriteState },
+			episodes: { ...initialSectionState },
 			fetchAnimes: async (query?, filters?) => {
 				set((state) => ({
 					animes: { ...state.animes, isLoading: true, error: null },
@@ -132,6 +133,70 @@ export const useAnimeCatalogStore = create<IAnimeCatalogStore>()(
 					}));
 				}
 			},
+			fetchEpisodes: async (animeId: string) => {
+				set((state) => ({
+					episodes: {
+						...state.episodes,
+						isLoading: true,
+						error: null,
+						data: [],
+					},
+				}));
+				try {
+					const response = await getAnimeEpisodes(animeId);
+					set((state) => ({
+						episodes: {
+							...state.episodes,
+							data: response?.data || [],
+							nextPageUrl: response?.links?.next || null,
+							isLoading: false,
+						},
+					}));
+				} catch (error) {
+					set((state) => ({
+						episodes: {
+							...state.episodes,
+							error:
+								error instanceof Error ? error.message : "Unexpected error",
+							isLoading: false,
+						},
+					}));
+				}
+			},
+			fetchEpisodesNextPage: async (animeId: string) => {
+				const { data, nextPageUrl, isLoadingMore, isLoading } = get().episodes;
+				if (data.length === 0 || !nextPageUrl || isLoadingMore || isLoading)
+					return;
+
+				set((state) => ({
+					episodes: { ...state.episodes, isLoadingMore: true },
+				}));
+
+				try {
+					const response = await getAnimeEpisodes(animeId, nextPageUrl);
+					set((state) => ({
+						episodes: {
+							...state.episodes,
+							data: response
+								? [...state.episodes.data, ...response.data]
+								: state.episodes.data,
+							nextPageUrl: response?.links?.next || null,
+							isLoadingMore: false,
+						},
+					}));
+				} catch (error) {
+					set((state) => ({
+						episodes: {
+							...state.episodes,
+							error:
+								error instanceof Error
+									? error.message
+									: "Error loading more episodes",
+							isLoadingMore: false,
+						},
+					}));
+				}
+			},
 			setFavoriteAnime: (anime: AnimeItem) => {
 				set((state) => {
 					const isAlreadyFavorite = state.favorites.data.some(
@@ -182,6 +247,11 @@ export const useAnimeCatalogStore = create<IAnimeCatalogStore>()(
 		{
 			name: "anime-catalog-storage",
 			storage: createJSONStorage(() => AsyncStorage),
+			partialize: (state) => ({
+				animes: state.animes,
+				trending: state.trending,
+				favorites: state.favorites,
+			}),
 		},
 	),
 );
