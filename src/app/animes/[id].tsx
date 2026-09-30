@@ -33,8 +33,8 @@ export default function AnimeDetail() {
 	} = useAnimeCatalogStore();
 	const isFavorite = id ? isSavedAsFavorite(id) : false;
 	const bannerUrl =
-		anime?.attributes.coverImage?.large ||
 		anime?.attributes.coverImage?.original ||
+		anime?.attributes.coverImage?.large ||
 		anime?.attributes.coverImage?.small ||
 		anime?.attributes.coverImage?.tiny ||
 		anime?.attributes.posterImage?.large ||

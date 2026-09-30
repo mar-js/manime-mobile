@@ -15,7 +15,7 @@ export const HeroAnime = ({
 		<Image
 			source={{ uri: bannerUrl }}
 			className="absolute top-0 left-0 right-0 bottom-0 w-full h-full"
-			resizeMode="cover"
+			resizeMode="stretch"
 		/>
 		<View
 			className="flex-row justify-between items-center w-full px-5 z-20"
