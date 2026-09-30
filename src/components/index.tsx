@@ -1,5 +1,6 @@
 export { ActiveTabs } from "./ActiveTabs";
 export { BannerAnime } from "./BannerAnime";
+export { BtnActiveTabs } from "./BtnActiveTabs";
 export { CardAnime } from "./CardAnime";
 export { HeadListAnime } from "./HeadListAnime";
 export { HeroAnime } from "./HeroAnime";
