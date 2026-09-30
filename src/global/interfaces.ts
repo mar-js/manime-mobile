@@ -11,6 +11,14 @@ import type {
 	TTypeAnime,
 } from "./types";
 
+export interface IAnimeEpisodesState {
+	data: EpisodeItem[];
+	isLoading: boolean;
+	isLoadingMore: boolean;
+	nextPageUrl: string | null;
+	error: string | null;
+}
+
 export interface IServiceAnimeEpisodesResponse {
 	data: EpisodeItem[];
 	meta: {
@@ -152,7 +160,7 @@ export interface IAnimeCatalogStore {
 	animes: IAnimeSectionState;
 	trending: IAnimeSectionState;
 	favorites: IAnimeFavoriteState;
-	episodes: IAnimeSectionState;
+	episodes: IAnimeEpisodesState;
 	fetchAnimes: (
 		query?: string,
 		filters?: ISearchState["filters"],
