@@ -2,6 +2,7 @@ import type { ComponentType, JSX } from "react";
 import type { ImageSourcePropType } from "react-native";
 import type { EdgeInsets } from "react-native-safe-area-context";
 import type {
+	TActiveTab,
 	TCategoryAnime,
 	TIoniconsName,
 	TSeasonYearAnime,
@@ -9,6 +10,11 @@ import type {
 	TStatusAnime,
 	TTypeAnime,
 } from "./types";
+
+export interface IActiveTabs {
+	activeTab: TActiveTab;
+	attributes: Attributes | undefined;
+}
 
 export interface IBannerAnime {
 	posterUrl: string | undefined;
