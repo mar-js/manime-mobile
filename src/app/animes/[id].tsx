@@ -7,6 +7,7 @@ import {
 import type { AnimeItem } from "@/global/interfaces";
 import type { TActiveTab } from "@/global/types";
 import { useAnimeCatalogStore } from "@/stores";
+import { LinearGradient } from "expo-linear-gradient";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { useEffect, useState } from "react";
 import {
@@ -91,9 +92,16 @@ export default function AnimeDetail() {
 	}, [id, favoritesData, getAnimeByIdLocal]);
 
 	return (
-		<>
+		<LinearGradient
+			colors={["#1abcb6", "#0b3141", "#04171f"]}
+			start={{ x: 1, y: 0 }}
+			end={{ x: 1, y: 1 }}
+			style={{
+				flex: 1,
+			}}
+		>
 			{anime ? (
-				<>
+				<View>
 					<HeroAnime
 						bannerUrl={bannerUrl}
 						insets={insets}
@@ -125,7 +133,7 @@ export default function AnimeDetail() {
 							</TouchableOpacity>
 						</View>
 					</ScrollView>
-				</>
+				</View>
 			) : (
 				<View
 					className="flex-1 justify-center items-center"
@@ -136,6 +144,6 @@ export default function AnimeDetail() {
 					</Text>
 				</View>
 			)}
-		</>
+		</LinearGradient>
 	);
 }
