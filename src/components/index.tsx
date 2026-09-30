@@ -1,4 +1,5 @@
 export { ActiveTabs } from "./ActiveTabs";
+export { AnimeEpisodesTab } from "./AnimeEpisodesTab";
 export { BannerAnime } from "./BannerAnime";
 export { BtnActiveTabs } from "./BtnActiveTabs";
 export { CardAnime } from "./CardAnime";
