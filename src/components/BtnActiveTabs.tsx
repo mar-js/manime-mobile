@@ -7,7 +7,7 @@ export const BtnActiveTabs = ({
 	activeTab,
 	setActiveTab,
 }: IBtnActiveTabs): JSX.Element => (
-	<View className="flex-row justify-between">
+	<View className="flex-row justify-between border-b border-gray-500">
 		{dataActiveTab.map((tab) => (
 			<TouchableOpacity
 				key={tab}
@@ -15,7 +15,7 @@ export const BtnActiveTabs = ({
 				className={`pb-3 ${activeTab === tab ? "border-b-2 border-[#ffdc5e]" : ""}`}
 			>
 				<Text
-					className={`text-base font-semibold ${activeTab === tab ? "text-[#ffdc5e]" : "text-zinc-500"}`}
+					className={`text-base font-semibold ${activeTab === tab ? "text-[#ffdc5e]" : "text-gray-500"}`}
 				>
 					{tab}
 				</Text>

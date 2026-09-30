@@ -127,7 +127,7 @@ export default function AnimeDetail() {
 						<ActiveTabs activeTab={activeTab} attributes={anime?.attributes} />
 						<View>
 							<TouchableOpacity className="w-full bg-[#ffdc5e] py-4 rounded-full items-center active:opacity-90 shadow-lg shadow-yellow-600/30">
-								<Text className="text-zinc-900 font-bold text-lg uppercase tracking-wider">
+								<Text className="text-gray-500 font-bold text-lg uppercase tracking-wider">
 									Ver Ahora
 								</Text>
 							</TouchableOpacity>
