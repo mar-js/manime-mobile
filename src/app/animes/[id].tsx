@@ -101,7 +101,7 @@ export default function AnimeDetail() {
 			}}
 		>
 			{anime ? (
-				<View>
+				<>
 					<HeroAnime
 						bannerUrl={bannerUrl}
 						insets={insets}
@@ -133,7 +133,7 @@ export default function AnimeDetail() {
 							</TouchableOpacity>
 						</View>
 					</ScrollView>
-				</View>
+				</>
 			) : (
 				<View
 					className="flex-1 justify-center items-center"
