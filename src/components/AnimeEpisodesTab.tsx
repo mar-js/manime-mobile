@@ -6,8 +6,11 @@ import { ActivityIndicator, FlatList, Text, View } from "react-native";
 import { CardAnimeEpisode } from "./CardAnimeEpisode";
 
 export const AnimeEpisodesTab = ({ animeId }: IAnimeEpisodesTab) => {
-	const { episodes, fetchEpisodes, fetchEpisodesNextPage } =
-		useAnimeCatalogStore();
+	const episodes = useAnimeCatalogStore((state) => state.episodes);
+	const fetchEpisodes = useAnimeCatalogStore((state) => state.fetchEpisodes);
+	const fetchEpisodesNextPage = useAnimeCatalogStore(
+		(state) => state.fetchEpisodesNextPage,
+	);
 
 	useEffect(() => {
 		if (animeId) {
@@ -24,7 +27,7 @@ export const AnimeEpisodesTab = ({ animeId }: IAnimeEpisodesTab) => {
 			) : (
 				<FlatList
 					data={episodes.data}
-					keyExtractor={(item) => item.id}
+					keyExtractor={(item, index) => `${item.id}-${index}`}
 					renderItem={({ item }) => <CardAnimeEpisode {...item} />}
 					scrollEnabled={false}
 					contentContainerStyle={{ gap: 12, paddingBottom: 20 }}
