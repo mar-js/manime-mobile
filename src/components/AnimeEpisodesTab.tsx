@@ -30,7 +30,7 @@ export const AnimeEpisodesTab = ({ animeId }: IAnimeEpisodesTab) => {
 					keyExtractor={(item, index) => `${item.id}-${index}`}
 					renderItem={({ item }) => <CardAnimeEpisode {...item} />}
 					scrollEnabled={false}
-					contentContainerStyle={{ gap: 12, paddingBottom: 20 }}
+					contentContainerStyle={{ gap: 12 }}
 					onEndReached={() => fetchEpisodesNextPage(animeId)}
 					onEndReachedThreshold={0.3}
 					ListFooterComponent={
