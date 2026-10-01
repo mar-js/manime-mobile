@@ -30,11 +30,13 @@ export const BannerAnime = ({
 				className="w-24 h-36 rounded-xl"
 				resizeMode="stretch"
 			/>
-			<View className="pb-5">
+			<View className="pb-5 pr-28">
 				<Text className="text-2xl font-bold text-white" numberOfLines={2}>
 					{canonicalTitle}
 				</Text>
-				<Text className="text-gray-500 text-sm mt-1">{title}</Text>
+				<Text className="text-gray-500 text-sm mt-1" numberOfLines={2}>
+					{title}
+				</Text>
 			</View>
 		</View>
 	</LinearGradient>
