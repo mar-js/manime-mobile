@@ -3,7 +3,7 @@ import { Image, Text, View } from "react-native";
 
 export const CardAnimeEpisode = (item: EpisodeItem) => {
 	const attr = item.attributes;
-	const thumb = attr.thumbnail?.original || "https://placehold.co";
+	const thumb = attr.thumbnail?.original || "";
 	const title =
 		attr.canonicalTitle || attr.titles.en_jp || `Episodio ${attr.number}`;
 
