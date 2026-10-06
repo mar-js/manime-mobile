@@ -14,6 +14,22 @@ export default function RootLayout() {
 	const theme = useTheme();
 	theme.colors.background = "transparent";
 
+	{
+		/*
+		const clearAsyncStorage = useCallback(async () => {
+			try {
+				await AsyncStorage.clear();
+			} catch (error) {
+				console.error("Error clearing AsyncStorage:", error);
+			}
+		}, []);
+
+		useEffect(() => {
+			clearAsyncStorage();
+		}, [clearAsyncStorage]);
+	*/
+	}
+
 	return (
 		<LinearGradient
 			colors={["#1abcb6", "#0b3141", "#04171f"]}
