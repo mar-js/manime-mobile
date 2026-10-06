@@ -11,7 +11,7 @@ export const ResultAnime = (anime: AnimeItem): JSX.Element => {
 	const router = useRouter();
 
 	const handlerNavigationAnime = () => {
-		router.push(`/animes/${anime.id}`);
+		router.push(`/root/animes/${anime.id}`);
 	};
 
 	const handleFavoriteAnime = () => {

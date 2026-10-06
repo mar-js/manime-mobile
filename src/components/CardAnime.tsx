@@ -14,7 +14,7 @@ export const CardAnime = (anime: AnimeItem): JSX.Element => {
 	].filter((img) => img !== null)[0];
 
 	const handlerNavigationAnime = () => {
-		router.push(`/animes/${anime.id}`);
+		router.push(`/root/animes/${anime.id}`);
 	};
 
 	const handleFavoriteAnime = () => {

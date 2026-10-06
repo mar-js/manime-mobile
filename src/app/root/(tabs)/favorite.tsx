@@ -13,7 +13,7 @@ export default function Favorite() {
 	const router = useRouter();
 
 	const handleNavigationAnime = () => {
-		router.push("/(tabs)");
+		router.push("/root/(tabs)");
 	};
 
 	return (
